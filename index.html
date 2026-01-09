@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apricity Geoscience Ltd | Expert Image Log Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        /* Neuropol font - if you have the font file, add @font-face here */
+        @font-face {
+            font-family: 'Neuropol';
+            src: url('Neuropol.woff2') format('woff2'),
+                 url('Neuropol.woff') format('woff'),
+                 url('Neuropol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        /* Fallback: Using a similar futuristic font if Neuropol is not available */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .apricity-font {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1),
+                         1px 1px 2px rgba(0, 0, 0, 0.8),
+                         0 0 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navy-bg {
+            background-color: #1a428a;
+        }
+        
+        .gold {
+            color: #ffb81d;
+        }
+        
+        .gold-bg {
+            background-color: #ffb81d;
+        }
+        
+        .navy {
+            color: #1a428a;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a428a 0%, #0f2d5f 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: scale(1.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+        
+        .logo-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../Shared Plip Plop/Apricity/Recoloured make the white areas.png');
+            background-size: 40%;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .logo-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-image-log {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.15;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .image-log-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent 0px,
+                transparent 6px,
+                rgba(255,184,29,0.4) 6px,
+                rgba(255,184,29,0.35) 12px
+            );
+            mix-blend-mode: overlay;
+        }
+        
+        .image-log-strata {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0%,
+                rgba(255, 184, 29, 0.2) 1%,
+                transparent 2%,
+                transparent 3%,
+                rgba(255, 184, 29, 0.15) 4%,
+                transparent 5%
+            );
+        }
+        
+        .image-log-fracture {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(255, 184, 29, 0.4),
+                transparent
+            );
+            left: 20%;
+            animation: fracture-pulse 3s ease-in-out infinite;
+        }
+        
+        .image-log-fracture:nth-child(2) {
+            left: 45%;
+            animation-delay: 1s;
+        }
+        
+        .image-log-fracture:nth-child(3) {
+            left: 70%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes fracture-pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scaleY(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scaleY(1.1);
+            }
+        }
+        
+        .header-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="navy-bg text-white py-4 sticky top-0 z-50 shadow-lg relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="flex items-center justify-between">
+                
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    <img src="logo.png" alt="Apricity Logo" class="h-14 w-auto object-contain">
+                    <div class="hidden md:block">
+                        <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                        <p class="text-xs text-gray-300">Image Log Analysis Specialists</p>
+                    </div>
+                </div>
+
+                <nav class="flex items-center space-x-6">
+                    <a href="#applications" class="hover:text-[#ffb81d] transition">Applications</a>
+                    <a href="#services" class="hover:text-[#ffb81d] transition">Services</a>
+                    <a href="#contact" class="bg-[#ffb81d] text-gray-900 px-4 py-2 rounded-md font-bold hover:bg-white transition">Contact</a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="max-w-4xl mx-auto text-center">
+                
+                <div class="flex justify-center mb-10">
+                    <img src="logo.png" alt="Apricity Logo" class="h-32 md:h-48 w-auto drop-shadow-2xl">
+                </div>
+
+                <div class="mb-6">
+                    <p class="text-lg md:text-xl apricity-font font-semibold mb-2 tracking-widest text-[#ffb81d]">ESTABLISHED 2024</p>
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight apricity-font">
+                    APRICITY GEOSCIENCE
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed italic">
+                    "Subsurface Strength. Global Vision."
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#services" class="gold-bg text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition duration-300">
+                        Our Services
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1a428a] transition duration-300">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Applications Section -->
+    <section id="applications" class="py-20 bg-white">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold navy mb-4">Specialised Applications</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Tailored image log analysis solutions for diverse energy sector challenges
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Efficiency & ROI Card -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 card-hover shadow-lg logo-bg">
+                    <div class="gold-bg w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold navy mb-3">Efficiency & ROI Optimisation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Advanced image log interpretation and fracture characterisation for unconventional and complex reservoir plays, maximising operational efficiency and investment returns.
+                    </p>
+                </div>
+
+                <!-- Production Maximization Card -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 card-hover shadow-lg logo-bg">
+                    <div class="gold-bg w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold navy mb-3">Production Maximisation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Comprehensive image log analysis for large-scale operations, supporting reservoir optimisation and production enhancement strategies for major operators.
+                    </p>
+                </div>
+
+                <!-- Energy Transition Card -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 card-hover shadow-lg logo-bg">
+                    <div class="gold-bg w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold navy mb-3">Energy Transition</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Specialised expertise in CCUS, net-zero initiatives, and sustainable energy development through advanced petrophysical analysis and subsurface characterisation.
+                    </p>
+                </div>
+
+                <!-- Frontier De-risking Card -->
+                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 card-hover shadow-lg logo-bg">
+                    <div class="gold-bg w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold navy mb-3">Frontier De-risking</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Expert image log interpretation and geological analysis for high-potential exploration projects, reducing uncertainty and supporting strategic decision-making.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold navy mb-4">Technical Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Comprehensive image log analysis and petrophysical consultancy
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-gold-bg">
+                        <h3 class="text-xl font-bold navy mb-3">FMI/ABI Interpretation</h3>
+                        <p class="text-gray-600">
+                            Advanced analysis of Formation MicroImager and Azimuthal Borehole Imager data for detailed structural and sedimentological characterisation.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-gold-bg">
+                        <h3 class="text-xl font-bold navy mb-3">Facies Modelling</h3>
+                        <p class="text-gray-600">
+                            Integrated facies classification and 3D modelling from image log data to enhance reservoir understanding and predictive capabilities.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-gold-bg">
+                        <h3 class="text-xl font-bold navy mb-3">Fracture Analysis</h3>
+                        <p class="text-gray-600">
+                            Comprehensive fracture network characterisation including orientation, density, and connectivity assessment for reservoir performance optimisation.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-gold-bg">
+                        <h3 class="text-xl font-bold navy mb-3">Petrophysical Integration</h3>
+                        <p class="text-gray-600">
+                            Seamless integration of image log data with conventional logs, core, and seismic for comprehensive reservoir evaluation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Footer -->
+    <footer id="contact" class="navy-bg text-white py-16">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get in Touch</h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Ready to enhance your subsurface understanding? Contact us to discuss your image log analysis needs.
+                </p>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+                    <form class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:border-gold-bg focus:ring-2 focus:ring-gold-bg">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:border-gold-bg focus:ring-2 focus:ring-gold-bg">
+                        </div>
+                        <div>
+                            <select class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white focus:outline-none focus:border-gold-bg focus:ring-2 focus:ring-gold-bg">
+                                <option value="" class="bg-navy-bg">Select Area of Interest</option>
+                                <option value="efficiency" class="bg-navy-bg">Efficiency & ROI Optimisation</option>
+                                <option value="production" class="bg-navy-bg">Production Maximisation</option>
+                                <option value="transition" class="bg-navy-bg">Energy Transition & CCUS</option>
+                                <option value="frontier" class="bg-navy-bg">Frontier De-risking</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:border-gold-bg focus:ring-2 focus:ring-gold-bg resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full gold-bg navy py-3 rounded-lg font-semibold hover:bg-yellow-500 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mt-12 pt-8 border-t border-white/20">
+                    <p class="text-gray-300">
+                        &copy; 2026 Apricity Geoscience Ltd. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
