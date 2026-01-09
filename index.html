@@ -69,18 +69,19 @@
         }
         
         .logo-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(#ffb81d 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
-            opacity: 0.1;
-            z-index: 0;
-            pointer-events: none;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Changed color to white for better contrast on navy and increased opacity slightly */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.3) 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+    opacity: 0.2; 
+    z-index: 0;
+    pointer-events: none;
+}
         
         .logo-bg > * {
             position: relative;
