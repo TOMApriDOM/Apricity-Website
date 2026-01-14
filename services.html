@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Services | Apricity Geoscience Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        @font-face {
+            font-family: 'Neuropol';
+            src: url('Neuropol.woff2') format('woff2'),
+                 url('Neuropol.woff') format('woff'),
+                 url('Neuropol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .apricity-font {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(26, 66, 138, 1),
+                         2px 2px 4px rgba(26, 66, 138, 0.8),
+                         0 0 12px rgba(26, 66, 138, 0.6),
+                         0 0 20px rgba(26, 66, 138, 0.4);
+        }
+        
+        .navy-bg { background-color: #1a428a; }
+        .gold { color: #ffb81d; }
+        .gold-bg { background-color: #ffb81d; }
+        .navy { color: #1a428a; }
+        
+        .borehole-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .borehole-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 100, 255, 0.15) 2px, rgba(0, 100, 255, 0.15) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(0, 100, 255, 0.08) 8px, rgba(0, 100, 255, 0.08) 10px),
+                radial-gradient(ellipse at 50% 50%, rgba(0, 100, 255, 0.2) 0%, transparent 60%);
+            opacity: 1;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .borehole-bg > * { position: relative; z-index: 2; }
+
+        /* Exact card hover from your index */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="borehole-bg navy-bg text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
+            <div class="flex items-center space-x-4 flex-shrink-0">
+                <img src="logo.png" alt="Apricity Logo" class="h-14 w-auto object-contain">
+                <div class="hidden md:block">
+                    <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                    <p class="text-xs text-gray-300">Image Log Analysis Specialists</p>
+                </div>
+            </div>
+            <nav class="flex items-center space-x-6 text-sm">
+                <a href="index.html" class="hover:text-[#ffb81d] transition">Home</a>
+                <a href="services.html" class="text-[#ffb81d] font-bold">Services</a>
+                <a href="contact.html" class="bg-[#ffb81d] text-gray-900 px-4 py-2 rounded-md font-bold hover:bg-white transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="services" class="bg-white py-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold navy mb-4">Technical Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive image log analysis and petrophysical consultancy</p>
+            </div>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Specialist Borehole Image Interpretation</h3>
+                    <p class="text-gray-600 text-sm">High resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Advanced Petrophysical Interpretation</h3>
+                    <p class="text-gray-600 text-sm">Thin bed analysis, saturation modelling, rock property derivation, and integrated petrophysical workflows for exploration, development, and storage projects.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Model Ready Subsurface Inputs</h3>
+                    <p class="text-gray-600 text-sm">Definitive, high assurance inputs for Static Models, Dynamic Models, and Mechanical Earth Models (MEM), ensuring robust foundations for decision makers.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Independent Technical Assurance & Peer Review</h3>
+                    <p class="text-gray-600 text-sm">Objective, specialist review of subsurface interpretations, workflows, and vendor deliverables to reduce risk and strengthen regulatory submissions.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Digital Technical Assurance & Data Conditioning</h3>
+                    <p class="text-gray-600 text-sm">Python driven QC, data unification, and expert labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Subsurface Integrity & Containment Assessment</h3>
+                    <p class="text-gray-600 text-sm">Fracture/fault characterisation, stress analysis, and caprock evaluation for CCUS, geothermal, hydrogen storage, and late life O&G assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="software" class="navy-bg borehole-bg text-white py-20 shadow-lg border-y border-blue-500">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold gold mb-4">Software Integration</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Platform-agnostic delivery and specialised development tools</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold gold mb-8 text-center uppercase tracking-widest">Analysis Platforms</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Petrel</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Techlog</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Interactive Petrophysics (IP)</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Kingdom</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">JewelSuite</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">DUG</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">TerraStation</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">LogIC</p></div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4">CODING & DEVELOPMENT</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Python-driven quality control, data unification, and expert-labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4">OPERATOR INTEGRATION</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Seamless delivery into operator-specific platforms and custom integration solutions for existing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white text-gray-800 py-4">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <p class="text-sm">&copy; 2026 Apricity Geoscience Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
