@@ -118,6 +118,23 @@
             min-height: 100vh;
         }
 
+        .hero-logo {
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+            position: relative;
+        }
+
+        .hero-logo::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
         /* When viewport becomes square-like (aspect ratio close to 1:1) */
         @media (max-width: 800px) and (min-height: 600px),
                (max-width: 768px) and (min-height: 600px),
@@ -164,7 +181,7 @@
         <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-center min-h-screen">
             <div class="max-w-4xl mx-auto text-center w-full">
                 <div class="flex justify-center mb-4 sm:mb-6">
-                    <img src="logo.png" alt="Apricity Logo" class="h-16 sm:h-20 md:h-28 lg:h-36 xl:h-44 w-auto drop-shadow-2xl">
+                    <img src="logo.png" alt="Apricity Logo" class="h-16 sm:h-20 md:h-28 lg:h-36 xl:h-44 w-auto drop-shadow-2xl hero-logo">
                 </div>
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 leading-tight apricity-font uppercase">
                     APRICITY GEOSCIENCE
