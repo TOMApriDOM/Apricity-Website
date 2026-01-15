@@ -139,6 +139,13 @@
             transition: all 0.3s ease;
         }
 
+        /* Mobile-specific glow effect */
+        @media (max-width: 768px) {
+            .hero-logo {
+                box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.3);
+            }
+        }
+
         /* When viewport becomes square-like (aspect ratio close to 1:1) */
         @media (max-width: 800px) and (min-height: 600px),
                (max-width: 768px) and (min-height: 600px),
