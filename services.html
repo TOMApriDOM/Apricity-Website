@@ -41,17 +41,17 @@
         .borehole-bg {
             position: relative;
             overflow: hidden;
+            background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                              repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(255, 255, 255, 0.03) 8px, rgba(255, 255, 255, 0.03) 10px);
         }
         
         .borehole-bg::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 100, 255, 0.15) 2px, rgba(0, 100, 255, 0.15) 4px),
-                repeating-linear-gradient(90deg, transparent, transparent 8px, rgba(0, 100, 255, 0.08) 8px, rgba(0, 100, 255, 0.08) 10px),
-                radial-gradient(ellipse at 50% 50%, rgba(0, 100, 255, 0.2) 0%, transparent 60%);
-            opacity: 1;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.08) 5px, rgba(0, 0, 0, 0.08) 10px),
+                              radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+            opacity: 0.5;
             z-index: 1;
             pointer-events: none;
         }
@@ -67,55 +67,92 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             z-index: 10;
         }
+        
+        .button-3d {
+            border-radius: 12px;
+            background: linear-gradient(#b8860b, #daa520) padding-box;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.4),
+                inset 0 4px 8px rgba(255, 255, 255, 1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .button-3d:hover {
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.6),
+                0 8px 15px rgba(0, 0, 0, 0.5),
+                inset 0 6px 12px rgba(255, 255, 255, 1),
+                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .glass-3d {
+            border-radius: 12px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.6),
+                0 8px 15px rgba(0, 0, 0, 0.5),
+                inset 0 6px 12px rgba(255, 255, 255, 1),
+                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <header class="borehole-bg navy-bg text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
-        <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
-            <div class="flex items-center space-x-4 flex-shrink-0">
-                <img src="logo.png" alt="Apricity Logo" class="h-14 w-auto object-contain">
-                <div class="hidden md:block">
-                    <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
-                    <p class="text-xs text-gray-300">Image Log Analysis Specialists</p>
+    <header class="borehole-bg bg-[#0a1a3a] text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    <img src="logo.png" alt="Apricity Logo" class="h-14 w-auto object-contain">
+                    <div class="hidden md:block">
+                        <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                        <p class="text-xs font-bold apricity-font text-gray-300">Petrophysical Analysis and Image Log Specialists</p>
+                    </div>
                 </div>
+                <nav class="flex items-center space-x-4">
+                    <a href="index.html" class="hero-button button-3d px-6 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Home
+                    </a>
+                    <a href="services.html" class="hero-button button-3d px-6 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Services
+                    </a>
+                    <a href="contact.html" class="hero-button button-3d px-6 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Contact
+                    </a>
+                </nav>
             </div>
-            <nav class="flex items-center space-x-6 text-sm">
-                <a href="index.html" class="hover:text-[#ffb81d] transition">Home</a>
-                <a href="services.html" class="text-[#ffb81d] font-bold">Services</a>
-                <a href="contact.html" class="bg-[#ffb81d] text-gray-900 px-4 py-2 rounded-md font-bold hover:bg-white transition">Contact</a>
-            </nav>
         </div>
     </header>
 
-    <section id="services" class="bg-white py-20">
+    <section id="services" class="bg-slate-300 text-black py-20">
         <div class="container mx-auto px-6 md:px-12">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold navy mb-4">Technical Services</h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Comprehensive image log analysis and petrophysical consultancy</p>
+                <h2 class="text-4xl md:text-5xl font-bold apricity-font mb-4">Technical Services</h2>
+                <p class="text-xl text-black max-w-2xl mx-auto">Proven ability to leverage broad subsurface knowledge to harmonize specialist outputs. We specialize in breaking down departmental silos, ensuring high-level technical specialisms are fully integrated with G&G and Engineering workflows to drive robust, collective decision-making.</p>
             </div>
             <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Specialist Borehole Image Interpretation</h3>
                     <p class="text-gray-600 text-sm">High resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Advanced Petrophysical Interpretation</h3>
                     <p class="text-gray-600 text-sm">Thin bed analysis, saturation modelling, rock property derivation, and integrated petrophysical workflows for exploration, development, and storage projects.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Model Ready Subsurface Inputs</h3>
                     <p class="text-gray-600 text-sm">Definitive, high assurance inputs for Static Models, Dynamic Models, and Mechanical Earth Models (MEM), ensuring robust foundations for decision makers.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Independent Technical Assurance & Peer Review</h3>
                     <p class="text-gray-600 text-sm">Objective, specialist review of subsurface interpretations, workflows, and vendor deliverables to reduce risk and strengthen regulatory submissions.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Digital Technical Assurance & Data Conditioning</h3>
                     <p class="text-gray-600 text-sm">Python driven QC, data unification, and expert labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400 card-hover">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
                     <h3 class="text-xl font-bold navy mb-3 uppercase">Subsurface Integrity & Containment Assessment</h3>
                     <p class="text-gray-600 text-sm">Fracture/fault characterisation, stress analysis, and caprock evaluation for CCUS, geothermal, hydrogen storage, and late life O&G assets.</p>
                 </div>
@@ -123,7 +160,7 @@
         </div>
     </section>
 
-    <section id="software" class="navy-bg borehole-bg text-white py-20 shadow-lg border-y border-blue-500">
+    <section id="software" class="borehole-bg bg-[#0a1a3a] text-white py-20 shadow-lg border-b border-white/10">
         <div class="container mx-auto px-6 md:px-12">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold gold mb-4">Software Integration</h2>
@@ -134,14 +171,14 @@
                 <div class="mb-12">
                     <h3 class="text-2xl font-bold gold mb-8 text-center uppercase tracking-widest">Analysis Platforms</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Petrel</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Techlog</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Interactive Petrophysics (IP)</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">Kingdom</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">JewelSuite</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">DUG</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">TerraStation</p></div>
-                        <div class="bg-white rounded-lg p-5 text-center shadow-md card-hover"><p class="font-bold text-gray-900">LogIC</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('petrel_background.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10" style="text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.7), 0 0 18px rgba(255, 255, 255, 0.5);">Petrel</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('petrel_background.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10" style="text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.7), 0 0 18px rgba(255, 255, 255, 0.5);">Techlog</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('IP_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10">Interactive Petrophysics (IP)</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('Kingdom_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10">Kingdom</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('jewelsuite_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10">JewelSuite</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('DUG_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10">DUG</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('Terrastation_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10" style="text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6);">TerraStation</p></div>
+                        <div class="bg-white rounded-lg p-5 text-center glass-3d relative overflow-hidden" style="background-image: url('logIC_background_services.png'); background-size: cover; background-position: center;"><p class="font-bold text-black relative z-10">LogIC</p></div>
                     </div>
                 </div>
                 
@@ -159,7 +196,7 @@
         </div>
     </section>
 
-    <footer class="bg-white text-gray-800 py-4">
+    <footer class="bg-slate-300 text-black py-4">
         <div class="container mx-auto px-6 md:px-12 text-center">
             <p class="text-sm">&copy; 2026 Apricity Geoscience Ltd. All rights reserved.</p>
         </div>
