@@ -86,25 +86,7 @@
                 inset 0 2px 4px rgba(255, 255, 255, 0.3),
                 inset 0 -2px 4px rgba(0, 0, 0, 0.1);
         }
-        .button-3d {
-            border-radius: 12px;
-            background: linear-gradient(#b8860b, #daa520) padding-box;
-            box-shadow: 
-                0 10px 25px rgba(0, 0, 0, 0.5),
-                0 5px 10px rgba(0, 0, 0, 0.4),
-                inset 0 4px 8px rgba(255, 255, 255, 1),
-                inset 0 -4px 8px rgba(0, 0, 0, 0.8);
-            transition: all 0.3s ease;
-        }
         
-        .button-3d:hover {
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.6),
-                0 8px 15px rgba(0, 0, 0, 0.5),
-                inset 0 6px 12px rgba(255, 255, 255, 1),
-                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
-            transform: translateY(-2px);
-        }
         .parallelogram {
             transform: skewX(-15deg);
         }
@@ -167,12 +149,16 @@
                     Definitive borehole reality. Mitigating geological risk and enhancing asset value through independent technical assurance
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
-                    <a href="services.html" class="hero-button button-3d px-8 py-3 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block">
-                        Services
-                    </a>
-                    <a href="contact.html" class="hero-button button-3d px-8 py-3 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block">
-                        Contact
-                    </a>
+                    <div class="border border-black rounded-lg">
+                        <a href="services.html" class="hero-button card-3d px-8 py-3 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center block">
+                            Services
+                        </a>
+                    </div>
+                    <div class="border border-black rounded-lg">
+                        <a href="contact.html" class="hero-button card-3d px-8 py-3 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center block">
+                            Contact
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="card-3d relative overflow-hidden bg-black h-64 w-3/4 md:w-full md:h-full parallelogram order-2 md:order-1 mx-auto" style="background-image: url('lefthero.png'), linear-gradient(black, black); background-size: cover, cover; background-position: center, center; background-blend-mode: normal;">
