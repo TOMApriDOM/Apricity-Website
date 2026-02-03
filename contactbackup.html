@@ -34,8 +34,8 @@
         }
         
         .navy-bg { background-color: #1a428a; }
-        .gold { color: #ffd700; }
-        .gold-bg { background-color: #ffd700; }
+        .gold { color: #ffb81d; }
+        .gold-bg { background-color: #ffb81d; }
         .navy { color: #1a428a; }
         
         .borehole-bg {
@@ -77,40 +77,6 @@
                 inset 0 -6px 12px rgba(0, 0, 0, 0.9);
             transform: translateY(-2px);
         }
-        
-        /* Scroll animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .slide-in-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .slide-in-right.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -128,17 +94,17 @@
                 </div>
             </div>
             <nav class="flex items-center space-x-4">
-                <a href="index.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffd700] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                <a href="index.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
                     Home
                 </a>
-                <a href="services.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffd700] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                <a href="index.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
                     About
                 </a>
             </nav>
         </div>
     </header>
 
-    <section class="py-20 bg-[#0a1a3a] text-white fade-in-section">
+    <section class="py-20 bg-[#0a1a3a] text-white">
         <div class="container mx-auto px-6 md:px-12">
             <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
@@ -158,24 +124,26 @@
                     </div>
                 </div>
 
-                <div class="bg-white/10 backdrop-blur-md rounded-[2px] p-8 md:p-10 border border-white/20 shadow-2xl slide-in-right">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-10 border border-white/20 shadow-2xl">
                     <form id="contactForm" action="#" method="POST" class="space-y-6">
                         <div>
                             <label class="block text-gold font-bold mb-2 uppercase text-xs tracking-widest" for="fullName">Name</label>
-                            <input type="text" id="fullName" name="fullName" required placeholder="Your Full Name" class="w-full px-4 py-4 rounded-[2px] bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold transition">
+                            <input type="text" id="fullName" name="fullName" required placeholder="Your Full Name" class="w-full px-4 py-4 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold transition">
                         </div>
                         <div>
                             <label class="block text-gold font-bold mb-2 uppercase text-xs tracking-widest" for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="email@company.com" class="w-full px-4 py-4 rounded-[2px] bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold transition">
+                            <input type="email" id="email" name="email" required placeholder="email@company.com" class="w-full px-4 py-4 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold transition">
                         </div>
                         <div>
                             <label class="block text-gold font-bold mb-2 uppercase text-xs tracking-widest" for="message">Message</label>
-                            <textarea id="message" name="message" required rows="6" placeholder="How can we help?" class="w-full px-4 py-4 rounded-[2px] bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold resize-none transition"></textarea>
+                            <textarea id="message" name="message" required rows="6" placeholder="How can we help?" class="w-full px-4 py-4 rounded-lg bg-white/10 border border-white/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold resize-none transition"></textarea>
                         </div>
 
-                        <div id="formMessage" class="hidden text-center p-4 rounded-[2px]"></div>
+                        <div id="formMessage" class="hidden text-center p-4 rounded-lg"></div>
 
-                        <button type="submit" class="hero-button button-3d w-full py-4 bg-gradient-to-r from-[#ffd700] to-[#ffd700] rounded-lg font-black text-lg text-black text-center block uppercase tracking-widest">SEND MESSAGE</button>
+                        <button type="submit" class="button-3d w-full py-4 rounded-lg font-black text-lg text-black text-center block uppercase tracking-widest">
+                            SEND MESSAGE
+                        </button>
                     </form>
                 </div>
 
@@ -267,26 +235,6 @@
                 // });
             }, 1500);
         }
-        
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all animated elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right');
-            animatedElements.forEach(el => observer.observe(el));
-        });
     </script>
 </body>
 </html>

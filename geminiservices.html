@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apricity Geoscience Ltd | Expert Image Log Analysis</title>
+
+    <link rel="icon" type="image/png" href="logo.webp">
+    <link rel="shortcut icon" href="logo.webp" type="image/x-icon">
+    <link rel="apple-touch-icon" href="logo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        @font-face {
+            font-family: 'Neuropol';
+            src: url('Neuropol.woff2') format('woff2'),
+                 url('Neuropol.woff') format('woff'),
+                 url('Neuropol.ttf') format('truetype');
+            font-weight: normal; font-style: normal;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        .apricity-font {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(26, 66, 138, 1), 0 0 20px rgba(26, 66, 138, 0.4);
+        }
+        .apricity-font-gold {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: #ffb81d;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 3px 3px 6px rgba(180, 180, 180, 0.9);
+        }
+        .apricity-font-onwhite {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 184, 29, 0.8);
+        }
+
+        /* --- THE GLASS BLOCK (Restored) --- */
+        .glass-block {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        /* The Sheen Sweep */
+        .glass-block::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -150%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease-in-out;
+            z-index: 20;
+        }
+        .glass-block:hover::after { left: 150%; }
+
+        .hero-skew { transform: skewX(-15deg); transition: box-shadow 0.4s ease; }
+        .hero-skew:hover { transform: skewX(-15deg); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6); }
+
+        .button-3d {
+            border-radius: 12px;
+            background: linear-gradient(#b8860b, #daa520) padding-box;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 4px 8px rgba(255, 255, 255, 1), inset 0 -4px 8px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        .button-3d:hover { transform: translateY(-2px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); }
+
+        .borehole-bg {
+            background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                              repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(255, 255, 255, 0.03) 8px, rgba(255, 255, 255, 0.03) 10px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="borehole-bg bg-[#0a1a3a] text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="logo.webp" alt="Apricity Logo" class="h-14 w-auto">
+                <div class="hidden md:block">
+                    <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                    <p class="text-xs font-bold apricity-font text-gray-300">Petrophysical Analysis and Image Log Specialists</p>
+                </div>
+            </div>
+            <nav class="flex space-x-4">
+                <a href="services.html" class="button-3d px-4 py-2 text-black font-bold text-sm">About</a>
+                <a href="contact.html" class="button-3d px-4 py-2 text-black font-bold text-sm">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="bg-slate-300 text-black pt-10 pb-10 md:pb-40 border-b px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center">
+            <div class="text-left md:pl-12 order-1 md:order-2">
+                <img src="logo.webp" alt="Apricity Logo" class="h-24 w-auto mb-8 hidden md:block">
+                <h2 class="text-4xl md:text-5xl font-bold apricity-font-onwhite mb-4 hidden md:block">Apricity Geoscience Ltd</h2>
+                <p class="text-xl text-black max-w-2xl hidden md:block">Definitive borehole reality. Mitigating geological risk and enhancing asset value through independent technical assurance</p>
+                <div class="hidden md:flex space-x-4 mt-8">
+                    <a href="services.html" class="button-3d px-10 py-3 text-black font-bold">About</a>
+                    <a href="contact.html" class="button-3d px-8 py-3 text-black font-bold">Contact</a>
+                </div>
+            </div>
+            <div class="glass-block hero-skew relative h-64 w-3/4 md:w-full md:h-full mx-auto hidden md:block" style="background-image: url('lefthero.webp'); background-size: cover; background-position: center;">
+            </div>
+        </div>
+    </section>
+
+    <section id="applications" class="bg-[#0a1a3a] text-white py-20">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black apricity-font-gold mb-4">Specialised Applications</h2>
+                <p class="text-lg text-gray-300">Tailored image log analysis solutions for diverse energy sector challenges</p>
+            </div>
+            
+            <div class="space-y-20">
+                <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center">
+                    <div class="md:col-span-3">
+                        <div class="glass-block aspect-video w-full" style="background-image: url('Efficiency_ROI_Optimisation.webp'); background-size: cover; background-position: center;">
+                            <div class="p-8 h-full flex items-start justify-end">
+                                <h3 class="text-lg font-bold text-[#ffb81d] text-right" style="text-shadow: 0 0 10px black;">Efficiency & ROI Optimisation</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="w-16 h-1 bg-[#ffb81d] mb-4"></div>
+                        <p class="text-lg">Advanced image log interpretation and fracture characterisation for unconventional and complex reservoir plays. We integrate high-resolution borehole imaging with traditional petrophysical logs to maximize recovery.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center">
+                    <div class="md:col-span-7 text-right order-2 md:order-1">
+                        <div class="w-16 h-1 bg-[#ffb81d] mb-4 ml-auto"></div>
+                        <p class="text-lg">Supporting reservoir optimisation and production enhancement strategies for major operators through integrated formation evaluation.</p>
+                    </div>
+                    <div class="md:col-span-3 order-1 md:order-2">
+                        <div class="glass-block aspect-video w-full" style="background-image: url('Production_Maximisation.webp'); background-size: cover; background-position: center;">
+                            <div class="p-8 h-full flex items-start justify-start">
+                                <h3 class="text-lg font-bold text-[#ffb81d] text-left" style="text-shadow: 0 0 10px black;">Production Maximisation</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center">
+                    <div class="md:col-span-3">
+                        <div class="glass-block aspect-video w-full" style="background-image: url('Energy_Transition.webp'); background-size: cover; background-position: center;">
+                            <div class="p-8 h-full flex items-start justify-end">
+                                <h3 class="text-lg font-bold text-[#ffb81d] text-right" style="text-shadow: 0 0 10px black;">Energy Transition</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-7">
+                        <div class="w-16 h-1 bg-[#ffb81d] mb-4"></div>
+                        <p class="text-lg">Specialised expertise in CCUS and net-zero initiatives, applying advanced petrophysics to ensure seal integrity and storage capacity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-block p-10">
+                    <h3 class="text-2xl font-bold text-[#ffb81d] mb-6 apricity-font-gold">Up to date tool utilisation</h3>
+                    <p class="text-gray-200 leading-relaxed mb-10">Agentic AI assistance & utilisation both industry specific interpretation and generic for reporting efficiency, appropriate automatic dip picking utilisation and ability to verify & validate. Python validation tool creation. Open to future developments, software and hardware, excited by the prospect of At Bit Imaging.</p>
+                    <div class="flex flex-wrap gap-4 text-xs font-bold tracking-widest uppercase">
+                        <span class="bg-[#ffb81d]/20 border border-[#ffb81d]/50 px-4 py-2 text-[#ffb81d]">Agentic AI</span>
+                        <span class="bg-[#ffb81d]/20 border border-[#ffb81d]/50 px-4 py-2 text-[#ffb81d]">Python Validation</span>
+                        <span class="bg-[#ffb81d]/20 border border-[#ffb81d]/50 px-4 py-2 text-[#ffb81d]">ABI Ready</span>
+                    </div>
+                </div>
+
+                <div class="glass-block p-10 flex flex-col justify-center border-l-4 border-l-[#ffb81d]">
+                    <h3 class="text-2xl font-bold text-[#ffb81d] mb-6 apricity-font-gold">Quality output</h3>
+                    <p class="text-white text-xl leading-relaxed italic opacity-90">
+                        "Refined and expert validated subsurface data, of the highest quality, ideal to support digital transformation, automation, and AI/ML initiatives"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-slate-300">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center mb-16">
+                <div class="md:col-span-3">
+                    <div class="glass-block aspect-video w-full" style="background-image: url('CBL.webp'); background-size: cover; background-position: center;">
+                        <div class="p-8 flex items-end h-full">
+                            <h3 class="text-lg font-bold text-white" style="text-shadow: 0 2px 4px black;">Subsurface Integrity</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-7">
+                    <div class="w-16 h-1 bg-[#0a1a3a] mb-4"></div>
+                    <p class="text-slate-800 text-lg">We have transitioned into CBL analysis as a natural evolution of our core expertise; providing high-resolution spatial awareness for Borehole Image Interpretation.</p>
+                </div>
+            </div>
+
+            <div class="bg-white/40 backdrop-blur-md p-10 md:p-14 shadow-2xl border border-white/20 relative overflow-hidden">
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="max-w-2xl">
+                        <h4 class="text-2xl font-bold text-[#0a1a3a] mb-4">Technical Assurance & Islay Subsurface and Engineering</h4>
+                        <p class="text-slate-800 text-lg">Strategic partnership in Islay Subsurface and Engineering allows us to scale instantly, providing the technical infrastructure to de-risk your project.</p>
+                    </div>
+                    <a href="https://www.islaysubsurface.com/" target="_blank">
+                        <img src="Islay_logo-transparent.webp" alt="Islay" class="h-28 w-auto hover:scale-105 transition-transform">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-300 text-black py-8 border-t border-black/10 text-center">
+        <p class="text-sm">&copy; <span id="year"></span> Apricity Geoscience Ltd. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

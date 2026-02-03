@@ -64,84 +64,8 @@
         }
         
         .button-3d:hover {
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.6),
-                0 8px 15px rgba(0, 0, 0, 0.5),
-                inset 0 6px 12px rgba(255, 255, 255, 1),
-                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 6px 12px rgba(255, 255, 255, 1);
             transform: translateY(-2px);
-        }
-        
-        /* Scroll animations */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .slide-in-left.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .slide-in-right.is-visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Sheen animation for borehole words */
-        .sheen-word {
-            position: relative;
-            color: #ffd700;
-            animation: sheen-text 6s infinite;
-        }
-        
-        .sheen-word:nth-child(1) {
-            animation-delay: 0s;
-        }
-        
-        .sheen-word:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .sheen-word:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        .sheen-word:nth-child(4) {
-            animation-delay: 0.6s;
-        }
-        
-        @keyframes sheen-text {
-            0%, 85%, 100% { 
-                text-shadow: 
-                    0 0 2px rgba(255, 215, 0, 0.8),
-                    0 0 4px rgba(255, 215, 0, 0.6);
-            }
-            92.5%, 97.5% { 
-                text-shadow: 
-                    0 0 8px rgba(255, 255, 255, 0.9),
-                    0 0 12px rgba(255, 255, 255, 0.7),
-                    0 0 16px rgba(255, 255, 255, 0.5),
-                    0 0 20px rgba(255, 255, 255, 0.3);
-            }
         }
 
         /* --- TECHNICAL GLASS SYSTEM --- */
@@ -246,10 +170,10 @@
         </div>
     </header>
 
-    <section id="technical-services" class="bg-slate-300 text-black py-20 fade-in-section">
+    <section id="technical-services" class="bg-slate-300 text-black py-20">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tighter" style="text-shadow: 3px 3px 6px rgba(26, 66, 138, 0.9), 0 0 20px rgba(26, 66, 138, 0.4);">Technical Services</h2>
+                <h2 class="text-4xl md:text-5xl apricity-font mb-4 tracking-tighter">Technical Services</h2>
                 <div class="h-1 w-24 bg-[#ffd700] mx-auto"></div>
             </div>
 
@@ -264,10 +188,10 @@
                     </div>
                     <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">High-resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
                     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-white/10 pt-6">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Facies Analysis</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Stress Indicators</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Structural Dip</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Fractures</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700]">Facies Analysis</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700]">Stress Indicators</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700]">Structural Dip</div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700]">Fractures</div>
                     </div>
                 </div>
 
@@ -300,10 +224,10 @@
         </div>
     </section>
 
-    <section id="software" class="bg-[#0a1a3a] text-white py-20 shadow-lg border-b border-white/10 fade-in-section">
+    <section id="software" class="bg-[#0a1a3a] text-white py-20 shadow-lg border-b border-white/10">
         <div class="container mx-auto px-6 md:px-12">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-black text-[#ffd700] mb-4" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(150, 150, 150, 0.6);">Digital solutions</h2>
+                <h2 class="text-4xl md:text-5xl font-black apricity-font-gold mb-4">Digital solutions</h2>
                 <p class="text-xl text-gray-300 max-w-2xl mx-auto">Platform-agnostic delivery and specialised development tools</p>
             </div>
             
@@ -346,39 +270,21 @@
                     </div>
                 </div>
                 
-                <!-- Copied cards from Technical Services -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-12">
-                    <div class="md:col-span-4 card-3d p-8 bg-gradient-to-br from-[#ffd700] to-[#daa520] text-black border-none">
-                        <span class="text-black/60 font-mono text-xs tracking-widest uppercase mb-2 block">Output // </span>
-                        <h3 class="text-2xl font-black uppercase leading-none mb-4">High-fidelity data</h3>
-                        <p class="text-black/80 text-sm leading-relaxed mb-6">Expertise meets innovation. We deliver refined subsurface datasets designed to support the most demanding digital transitions. High-quality, validated data that acts as the essential fuel for your automation and machine learning goals</p>
-                        <div class="h-px bg-black/20 w-full mb-4"></div>
-                        <p class="font-mono text-[10px] font-bold uppercase">Optimised // ML Fluidity </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4 uppercase">Coding & Development</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Python-driven quality control, data unification, and expert-labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
                     </div>
-
-                    <div class="md:col-span-8 card-3d p-8 relative group overflow-hidden bg-black/40 backdrop-blur-sm">
-                        <div class="flex flex-col md:flex-row justify-between items-start mb-6 text-white">
-                            <div>
-                                <span class="text-[#ffd700] font-mono text-xs tracking-[0.3em] uppercase mb-2 block">// Future proofing</span>
-                                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight">Technical updates</h3>
-                            </div>
-                            <span class="text-5xl opacity-20 hidden md:block">📐</span>
-                        </div>
-                        <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">Integrating cutting-edge Agentic AI and bespoke Python tools to drive reporting efficiency and interpretive accuracy, by combining automated workflows with rigorous human validation. Our roadmap is defined by innovation, from software automation to the transformative potential of At-Bit Imaging (ABI).</p>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 border-t border-white/10 pt-6">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Agentic AI</div>
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Python validation</div>
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Next-gen hardware ready</div>
-                        </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-8 border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4 uppercase">Operator Integration</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Seamless delivery into operator-specific platforms and custom integration solutions for existing workflows.</p>
                     </div>
                 </div>
-                
-                
             </div>
         </div>
     </section>
 
-    <section class="py-16 bg-slate-300 text-slate-900 fade-in-section">
+    <section class="py-16 bg-slate-300 text-slate-900">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
                 <div class="w-72 h-80 md:w-80 md:h-96 flex-shrink-0 relative">
@@ -415,26 +321,5 @@
         </div>
     </footer>
 
-    <script>
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all animated elements
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right');
-            animatedElements.forEach(el => observer.observe(el));
-        });
-    </script>
 </body>
 </html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Services | Apricity Geoscience Ltd</title>
+    <link rel="icon" type="image/png" href="logo.webp">
+<link rel="shortcut icon" href="logo.webp" type="image/x-icon">
+<link rel="apple-touch-icon" href="logo.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        @font-face {
+            font-family: 'Neuropol';
+            src: url('Neuropol.woff2') format('woff2'),
+                 url('Neuropol.woff') format('woff'),
+                 url('Neuropol.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        
+        .apricity-font {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(26, 66, 138, 0.9),
+                         2px 2px 4px rgba(26, 66, 138, 0.8),
+                         0 0 12px rgba(26, 66, 138, 0.6),
+                         0 0 20px rgba(26, 66, 138, 0.4);
+        }
+        
+        .apricity-font-gold {
+            font-family: 'Neuropol', 'Orbitron', 'Arial Black', sans-serif;
+            color: #ffb81d;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9),
+                         3px 3px 6px rgba(180, 180, 180, 0.9),
+                         2px 2px 4px rgba(160, 160, 160, 0.8),
+                         0 0 12px rgba(150, 150, 150, 0.6),
+                         0 0 20px rgba(130, 130, 130, 0.4);
+        }
+        
+        .navy-bg { background-color: #1a428a; }
+        .gold { color: #ffb81d; }
+        .gold-bg { background-color: #ffb81d; }
+        .navy { color: #1a428a; }
+        
+        .borehole-bg {
+            position: relative;
+            overflow: hidden;
+            background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px),
+                              repeating-linear-gradient(90deg, transparent 0px, transparent 8px, rgba(255, 255, 255, 0.03) 8px, rgba(255, 255, 255, 0.03) 10px);
+        }
+        
+        .borehole-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(0, 0, 0, 0.08) 5px, rgba(0, 0, 0, 0.08) 10px),
+                              radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .borehole-bg > * { position: relative; z-index: 2; }
+
+        .button-3d {
+            border-radius: 12px;
+            background: linear-gradient(#b8860b, #daa520) padding-box;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.4),
+                inset 0 4px 8px rgba(255, 255, 255, 1),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .button-3d:hover {
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.6),
+                0 8px 15px rgba(0, 0, 0, 0.5),
+                inset 0 6px 12px rgba(255, 255, 255, 1),
+                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .glass-3d {
+            border-radius: 12px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.6),
+                0 8px 15px rgba(0, 0, 0, 0.5),
+                inset 0 6px 12px rgba(255, 255, 255, 1),
+                inset 0 -6px 12px rgba(0, 0, 0, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .software-box {
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .software-text {
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 12px rgba(255, 255, 255, 0.7), 0 0 18px rgba(255, 255, 255, 0.5);
+        }
+        
+        .software-text-light {
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="borehole-bg bg-[#0a1a3a] text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                        <img src="logo.webp" alt="Apricity Logo" class="h-14 w-auto object-contain">
+                    </a>
+                    <div class="hidden md:block">
+                        <a href="index.html" class="hover:opacity-80 transition-opacity">
+                            <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                            <p class="text-xs font-bold apricity-font text-gray-300">Petrophysical Analysis and Image Log Specialists</p>
+                        </a>
+                    </div>
+                </div>
+                <nav class="flex items-center space-x-4">
+                    <a href="index.html" class="hero-button button-3d px-6 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Home
+                    </a>
+                    <a href="services.html" class="hero-button button-3d px-2 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Services
+                    </a>
+                    <a href="contact.html" class="hero-button button-3d px-3 py-2 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">
+                        Contact
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="bg-slate-300 text-black py-20">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold apricity-font mb-4">Technical Services</h2>
+                <p class="text-xl text-black max-w-2xl mx-auto">Proven ability to leverage broad subsurface knowledge to harmonize specialist outputs. We specialize in breaking down departmental silos, ensuring high-level technical specialisms are fully integrated with G&G and Engineering workflows to drive robust, collective decision-making.</p>
+            </div>
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Specialist Borehole Image Interpretation</h3>
+                    <p class="text-gray-600 text-sm">High resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Advanced Petrophysical Interpretation</h3>
+                    <p class="text-gray-600 text-sm">Thin bed analysis, saturation modelling, rock property derivation, and integrated petrophysical workflows for exploration, development, and storage projects.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Model Ready Subsurface Inputs</h3>
+                    <p class="text-gray-600 text-sm">Definitive, high assurance inputs for Static Models, Dynamic Models, and Mechanical Earth Models (MEM), ensuring robust foundations for decision makers.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Independent Technical Assurance & Peer Review</h3>
+                    <p class="text-gray-600 text-sm">Objective, specialist review of subsurface interpretations, workflows, and vendor deliverables to reduce risk and strengthen regulatory submissions.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Digital Technical Assurance & Data Conditioning</h3>
+                    <p class="text-gray-600 text-sm">Python driven QC, data unification, and expert labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h3 class="text-xl font-bold navy mb-3 uppercase">Subsurface Integrity & Containment Assessment</h3>
+                    <p class="text-gray-600 text-sm">Fracture/fault characterisation, stress analysis, and caprock evaluation for CCUS, geothermal, hydrogen storage, and late life O&G assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="software" class="bg-[#0a1a3a] text-white py-20 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black apricity-font-gold mb-4">Software Integration</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">Platform-agnostic delivery and specialised development tools</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold gold mb-8 text-center uppercase tracking-widest">Analysis Platforms</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('petrel_background.webp');"><p class="font-bold text-black relative z-10 software-text">Petrel</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('petrel_background.webp');"><p class="font-bold text-black relative z-10 software-text">Techlog</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('IP_background_services.webp');"><p class="font-bold text-black relative z-10">Interactive Petrophysics (IP)</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('Kingdom_background_services.webp');"><p class="font-bold text-black relative z-10">Kingdom</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('jewelsuite_background_services.webp');"><p class="font-bold text-black relative z-10">JewelSuite</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('DUG_background_services.webp');"><p class="font-bold text-black relative z-10">DUG</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('Terrastation_background_services.webp');"><p class="font-bold text-black relative z-10 software-text-light">TerraStation</p></div>
+                        <div class="glass-3d p-5 text-center software-box" style="background-image: url('logIC_background_services.webp');"><p class="font-bold text-black relative z-10">LogIC</p></div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4">CODING & DEVELOPMENT</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Python-driven quality control, data unification, and expert-labelled datasets to support digital transformation, automation, and AI/ML initiatives.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-l-4 border-yellow-400">
+                        <h3 class="text-xl font-bold gold mb-4">OPERATOR INTEGRATION</h3>
+                        <p class="text-gray-200 text-sm leading-relaxed">Seamless delivery into operator-specific platforms and custom integration solutions for existing workflows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-slate-300 text-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto">
+                
+                <div class="w-72 h-80 md:w-80 md:h-96 flex-shrink-0 relative">
+                    <div class="absolute -top-4 -left-4 w-full h-full border-2 border-gold/30 rounded-2xl"></div>
+                    <div class="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl border-4 border-white">
+                        <img src="technical-lead-apricity.webp" alt="Technical Lead - Apricity Geoscience" class="object-cover h-full w-full" style="object-position: 50% 30%;">
+                    </div>
+                </div>
+                
+                <div class="flex-1">
+                    <div class="mb-6">
+                        <div class="flex items-center gap-4">
+                            <div>
+                                <h2 class="text-4xl font-bold text-[#0a1a3a] mb-1">Sarah Dominey</h2>
+                                <p class="text-lg font-bold gold uppercase tracking-widest">Technical Lead & Founder</p>
+                            </div>
+                            <a href="https://www.linkedin.com/in/sarah-dominey/" target="_blank" rel="noopener noreferrer" class="bg-[#0A66C2] p-2.5 rounded-lg hover:scale-110 transition-transform duration-300 shadow-xl flex-shrink-0">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z M8 19h-3v-10h3v10z M6.5 7.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764z M20 19h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-10h3v1.477c1.397-2.585 7-2.777 7 2.476v6.047z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed text-slate-700 mb-6 italic">
+                        "Bridging the gap between digital models and wellbore reality through technical leadership and integrated geological perspective."
+                    </p>
+                    
+                    <p class="text-slate-800 leading-relaxed text-lg mb-6">
+                        With a career focused on high-level specialism in borehole image interpretation and advanced petrophysics, I founded Apricity Geoscience to provide the technical assurance required for complex subsurface projects. My broad geological foundation allows me to lead multidisciplinary teams, ensuring specialist data is fully integrated across G&G and Engineering departments to drive definitive decision-making.
+                    </p>
+
+                    <p class="font-serif text-2xl text-[#0a1a3a]/70 opacity-80 mt-4">
+                        Sarah
+                    </p>
+                    
+                    <div class="mt-8">
+                        <a href="contact.html" class="hero-button button-3d px-8 py-3 bg-gradient-to-r from-[#ffb81d] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block w-1/3">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-300 text-black py-4">
+        <div class="container mx-auto px-6 md:px-12 text-center">
+            <p class="text-sm">&copy; 2026 Apricity Geoscience Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
