@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Received | Apricity Geoscience Ltd</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        @font-face {
+            font-family: 'Neuropol';
+            src: url('Neuropol.woff2') format('woff2'),
+                 url('Neuropol.woff') format('woff'),
+                 url('Neuropol.ttf') format('truetype');
+            font-weight: normal; font-style: normal;
+        }
+        
+        body { font-family: 'Inter', sans-serif; background-color: #0a1a3a; color: white; }
+        
+        .apricity-font {
+            font-family: 'Neuropol', sans-serif;
+            text-shadow: 0 0 20px rgba(26, 66, 138, 0.4);
+        }
+
+        .button-3d {
+            border-radius: 12px;
+            background: linear-gradient(#b8860b, #daa520) padding-box;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 4px 8px rgba(255, 255, 255, 1), inset 0 -4px 8px rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <div class="max-w-2xl w-full bg-white/10 backdrop-blur-xl p-12 rounded-lg border border-white/20 text-center shadow-2xl">
+        <div class="mb-8 flex justify-center">
+            <div class="w-20 h-20 bg-green-500/20 border border-green-500/50 rounded-full flex items-center justify-center">
+                <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <h1 class="text-4xl font-bold apricity-font mb-4 uppercase tracking-tight">Message Received</h1>
+        <p class="text-xl text-gray-300 mb-10 leading-relaxed">
+            Thank you for reaching out. We have received your inquiry and a member of the Apricity team will be in touch shortly to discuss your subsurface requirements.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+            <a href="index.html" class="button-3d px-8 py-3 text-black font-bold uppercase text-sm tracking-widest">
+                Return Home
+            </a>
+            <a href="https://www.linkedin.com/company/apricity-geoscience" target="_blank" class="bg-white/5 hover:bg-white/10 border border-white/20 px-8 py-3 rounded-lg font-bold uppercase text-sm tracking-widest transition-all">
+                Follow on LinkedIn
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
