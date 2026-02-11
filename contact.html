@@ -56,6 +56,18 @@
             transition: all 0.8s ease-out;
         }
         
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+        
         .is-visible {
             opacity: 1;
             transform: translateY(0) translateX(0);
@@ -68,15 +80,24 @@
 <body class="min-h-screen flex flex-col">
 
     <header class="borehole-bg bg-[#0a1a3a] text-white py-4 sticky top-0 z-50 shadow-lg border-b border-white/10">
-        <div class="container mx-auto px-6 md:px-12 flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-                <a href="index.html"><img src="logo.webp" alt="Apricity Logo" class="h-14 w-auto"></a>
-                <h1 class="text-xl font-bold apricity-font hidden md:block">Apricity Geoscience Ltd</h1>
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    <a href="index.html" class="flex items-center space-x-4 hover:opacity-80 transition-opacity">
+                        <img src="logo.webp" alt="Apricity Logo" class="h-14 w-auto object-contain">
+                    </a>
+                    <div class="hidden md:block">
+                        <a href="index.html" class="hover:opacity-80 transition-opacity">
+                            <h1 class="text-xl font-bold apricity-font">Apricity Geoscience Ltd</h1>
+                            <p class="text-xs font-bold apricity-font text-gray-300">Petrophysical Analysis and Image Log Specialists</p>
+                        </a>
+                    </div>
+                </div>
+                <nav class="flex items-center space-x-4">
+                    <a href="index.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffd700] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">Home</a>
+                    <a href="services.html" class="hero-button button-3d px-4 py-2 bg-gradient-to-r from-[#ffd700] to-[#ffd700] text-black font-bold rounded-lg shadow-white text-center block text-sm">About</a>
+                </nav>
             </div>
-            <nav class="flex space-x-4">
-                <a href="index.html" class="button-3d px-4 py-2 text-black font-bold text-sm">Home</a>
-                <a href="services.html" class="button-3d px-4 py-2 text-black font-bold text-sm">About</a>
-            </nav>
         </div>
     </header>
 
@@ -84,7 +105,7 @@
         <div class="container mx-auto px-6 md:px-12">
             <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <div class="space-y-8 fade-in-section">
+                <div class="space-y-8 slide-in-left">
                     <h2 class="text-5xl md:text-6xl font-bold apricity-font uppercase leading-tight">Connect With Us</h2>
                     <p class="text-xl text-gray-300 leading-relaxed">
                         Ready to enhance your subsurface understanding? Send us a message or connect with our team on LinkedIn for updates and technical insights.
@@ -136,7 +157,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in-section, .slide-in-right').forEach(el => observer.observe(el));
+        document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in-section').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

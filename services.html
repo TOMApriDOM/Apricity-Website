@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,6 +106,233 @@
             opacity: 1;
             transform: translateX(0);
         }
+
+        /* Mosaic Assembly Animation */
+        .mosaic-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mosaic-fragment {
+            position: absolute;
+            background: rgba(10, 26, 58, 0.4);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease-out 0.6s;
+        }
+
+        .mosaic-card.is-visible .mosaic-content {
+            opacity: 1;
+        }
+
+        /* Second mosaic card with delayed animation */
+        .mosaic-card-delayed {
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed .mosaic-fragment {
+            position: absolute;
+            background: rgba(218, 165, 32, 0.9);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card-delayed.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-card-delayed .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed.is-visible .mosaic-content {
+            opacity: 1;
+        }
+
+        /* Third mosaic card with longer delay and 4x2 grid */
+        .mosaic-card-delayed-2 {
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-2 .mosaic-fragment {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card-delayed-2.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-card-delayed-2 .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-2.is-visible .mosaic-content {
+            opacity: 1;
+        }
+
+        /* Fourth mosaic card */
+        .mosaic-card-delayed-3 {
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-3 .mosaic-fragment {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card-delayed-3.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-card-delayed-3 .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-3.is-visible .mosaic-content {
+            opacity: 1;
+        }
+
+        /* Fifth mosaic card */
+        .mosaic-card-delayed-4 {
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-4 .mosaic-fragment {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card-delayed-4.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-card-delayed-4 .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-4.is-visible .mosaic-content {
+            opacity: 1;
+        }
+
+        /* Sixth mosaic card - OUTPUT card */
+        .mosaic-card-delayed-5 {
+            position: relative;
+            overflow: hidden;
+            opacity: 1;
+        }
+
+        .mosaic-card-delayed-5 .mosaic-fragment {
+            position: absolute;
+            background: rgba(218, 165, 32, 0.9);
+            backdrop-filter: blur(6px) saturate(120%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transform: translate(var(--tx), var(--ty)) scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .mosaic-card-delayed-5.is-visible .mosaic-fragment {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+            border: none;
+        }
+
+        .mosaic-card-delayed-5 .mosaic-content {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+        }
+
+/* Seventh mosaic card - Future proofing card */
+.mosaic-card-delayed-6 {
+    position: relative;
+    overflow: hidden;
+}
+
+.mosaic-card-delayed-6 .mosaic-fragment {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.8);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mosaic-card-delayed-6.is-visible .mosaic-fragment {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    border: none;
+}
+
+.mosaic-card-delayed-6 .mosaic-content {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0.6s;
+}
+
+.mosaic-card-delayed-6.is-visible .mosaic-content {
+    opacity: 1;
+}
 
         /* Sheen animation for borehole words */
         .sheen-word {
@@ -254,47 +482,72 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <div class="md:col-span-8 card-3d p-8 relative group overflow-hidden bg-black/40 backdrop-blur-sm">
-                    <div class="flex flex-col md:flex-row justify-between items-start mb-6 text-white">
-                        <div>
-                            <span class="text-[#ffd700] font-mono text-xs tracking-[0.3em] uppercase mb-2 block">// Core Specialism</span>
-                            <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight">Specialist Borehole Image Interpretation</h3>
+                <div class="md:col-span-8 card-3d p-8 relative group overflow-hidden mosaic-card" id="mosaic-card">
+                    <!-- Mosaic fragments will be generated by JavaScript -->
+                    
+                    <!-- Card content -->
+                    <div class="mosaic-content">
+                        <div class="flex flex-col md:flex-row justify-between items-start mb-6 text-white">
+                            <div>
+                                <span class="text-[#ffd700] font-mono text-xs tracking-[0.3em] uppercase mb-2 block">// Core Specialism</span>
+                                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight">Specialist Borehole Image Interpretation</h3>
+                            </div>
+                            <span class="text-5xl opacity-20 hidden md:block">🌐</span>
                         </div>
-                        <span class="text-5xl opacity-20 hidden md:block">📐</span>
+                        <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">High-resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-white/10 pt-6">
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Facies Analysis</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Stress Indicators</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Structural Dip</div>
+                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Fractures</div>
+                        </div>
                     </div>
-                    <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">High-resolution structural and sedimentological analysis for reservoir characterisation, containment assurance, and geomechanical modelling.</p>
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 border-t border-white/10 pt-6">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Facies Analysis</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Stress Indicators</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Structural Dip</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Fractures</div>
+                </div>
+
+                <div class="md:col-span-4 card-3d p-8 bg-gradient-to-br from-[#ffd700] to-[#daa520] text-black border-none mosaic-card-delayed" id="mosaic-card-delayed" style="background: transparent;">
+                    <!-- Mosaic fragments will be generated by JavaScript -->
+                    
+                    <!-- Card content -->
+                    <div class="mosaic-content">
+                        <span class="text-black/60 font-mono text-xs tracking-widest uppercase mb-2 block">Capability // 02</span>
+                        <h3 class="text-2xl font-black uppercase leading-none mb-4">Advanced Petrophysics</h3>
+                        <p class="text-black/80 text-sm leading-relaxed mb-6">Thin bed analysis, saturation modelling, rock property derivation, and integrated petrophysical workflows for exploration, development, and storage projects.</p>
+                        <div class="h-px bg-black/20 w-full mb-4"></div>
+                        <p class="font-mono text-[10px] font-bold uppercase">Integration: BHIL + CBL + VDL</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-4 card-3d p-8 bg-gradient-to-br from-[#ffd700] to-[#daa520] text-black border-none">
-                    <span class="text-black/60 font-mono text-xs tracking-widest uppercase mb-2 block">Capability // 02</span>
-                    <h3 class="text-2xl font-black uppercase leading-none mb-4">Advanced Petrophysics</h3>
-                    <p class="text-black/80 text-sm leading-relaxed mb-6">Thin bed analysis, saturation modelling, rock property derivation, and integrated petrophysical workflows for exploration, development, and storage projects.</p>
-                    <div class="h-px bg-black/20 w-full mb-4"></div>
-                    <p class="font-mono text-[10px] font-bold uppercase">Integration: BHIL + CBL + VDL</p>
+                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors mosaic-card-delayed-2" id="mosaic-card-delayed-2" style="background: transparent;">
+                    <!-- Mosaic fragments will be generated by JavaScript -->
+                    
+                    <!-- Card content -->
+                    <div class="mosaic-content">
+                        <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Model Ready</h4>
+                        <h3 class="text-lg font-bold mb-2">Subsurface Inputs</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Definitive, high-assurance inputs for Static, Dynamic, and Mechanical Earth Models (MEM).</p>
+                    </div>
                 </div>
 
-                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors">
-                    <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Model Ready</h4>
-                    <h3 class="text-lg font-bold mb-2">Subsurface Inputs</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">Definitive, high-assurance inputs for Static, Dynamic, and Mechanical Earth Models (MEM).</p>
+                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors mosaic-card-delayed-3" id="mosaic-card-delayed-3" style="background: transparent;">
+                    <!-- Mosaic fragments will be generated by JavaScript -->
+                    
+                    <!-- Card content -->
+                    <div class="mosaic-content">
+                        <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Truly Independent</h4>
+                        <h3 class="text-lg font-bold mb-2">Expert Peer Review</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Specialist review of interpretations and vendor deliverables to mitigate subsurface risk.</p>
+                    </div>
                 </div>
 
-                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors">
-                    <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Truly Independent</h4>
-                    <h3 class="text-lg font-bold mb-2">Expert Peer Review</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">Specialist review of interpretations and vendor deliverables to mitigate subsurface risk.</p>
-                </div>
-
-                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors">
-                    <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Digital</h4>
-                    <h3 class="text-lg font-bold mb-2">Data Conditioning</h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">Python-driven QC and expert-labeled datasets for Digital Transformation and ML workflows.</p>
+                <div class="md:col-span-4 card-3d p-6 bg-black/60 text-white hover:bg-black/80 transition-colors mosaic-card-delayed-4" id="mosaic-card-delayed-4" style="background: transparent;">
+                    <!-- Mosaic fragments will be generated by JavaScript -->
+                    
+                    <!-- Card content -->
+                    <div class="mosaic-content">
+                        <h4 class="text-[#ffd700] text-[10px] font-bold uppercase mb-3">Digital</h4>
+                        <h3 class="text-lg font-bold mb-2">Data Conditioning</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">Python-driven QC and expert-labeled datasets for Digital Transformation and ML workflows.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -348,27 +601,35 @@
                 
                 <!-- Copied cards from Technical Services -->
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-12">
-                    <div class="md:col-span-4 card-3d p-8 bg-gradient-to-br from-[#ffd700] to-[#daa520] text-black border-none">
-                        <span class="text-black/60 font-mono text-xs tracking-widest uppercase mb-2 block">Output // </span>
+                    <div class="md:col-span-4 card-3d p-8 bg-gradient-to-br from-[#ffd700] to-[#daa520] text-black border-none mosaic-card-delayed-5" id="mosaic-card-delayed-5" style="background: transparent;">
+                        <!-- Mosaic fragments will be generated by JavaScript -->
+                        
+                        <!-- Card content -->
+                        <div class="mosaic-content">
+                            <span class="text-black/60 font-mono text-xs tracking-widest uppercase mb-2 block">Output // </span>
                         <h3 class="text-2xl font-black uppercase leading-none mb-4">High-fidelity data</h3>
                         <p class="text-black/80 text-sm leading-relaxed mb-6">Expertise meets innovation. We deliver refined subsurface datasets designed to support the most demanding digital transitions. High-quality, validated data that acts as the essential fuel for your automation and machine learning goals</p>
-                        <div class="h-px bg-black/20 w-full mb-4"></div>
-                        <p class="font-mono text-[10px] font-bold uppercase">Optimised // ML Fluidity </p>
+                        </div>
                     </div>
 
-                    <div class="md:col-span-8 card-3d p-8 relative group overflow-hidden bg-black/40 backdrop-blur-sm">
-                        <div class="flex flex-col md:flex-row justify-between items-start mb-6 text-white">
-                            <div>
-                                <span class="text-[#ffd700] font-mono text-xs tracking-[0.3em] uppercase mb-2 block">// Future proofing</span>
-                                <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight">Technical updates</h3>
+                    <div class="md:col-span-8 card-3d p-8 bg-black/60 text-white hover:bg-black/80 transition-colors mosaic-card-delayed-6" id="mosaic-card-delayed-6" style="background: transparent;">
+                        <!-- Mosaic fragments will be generated by JavaScript -->
+                        
+                        <!-- Card content -->
+                        <div class="mosaic-content">
+                            <div class="flex flex-col md:flex-row justify-between items-start mb-6 text-white">
+                                <div>
+                                    <span class="text-[#ffd700] font-mono text-xs tracking-[0.3em] uppercase mb-2 block">// Future proofing</span>
+                                    <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight">Technical updates</h3>
+                                </div>
+                                <span class="text-5xl opacity-20 hidden md:block">💻</span>
                             </div>
-                            <span class="text-5xl opacity-20 hidden md:block">📐</span>
-                        </div>
-                        <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">Integrating cutting-edge Agentic AI and bespoke Python tools to drive reporting efficiency and interpretive accuracy, by combining automated workflows with rigorous human validation. Our roadmap is defined by innovation, from software automation to the transformative potential of At-Bit Imaging (ABI).</p>
-                        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 border-t border-white/10 pt-6">
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Agentic AI</div>
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Python validation</div>
-                            <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Next-gen hardware ready</div>
+                            <p class="text-gray-300 mb-8 leading-relaxed max-w-2xl">Integrating cutting-edge Agentic AI and bespoke Python tools to drive reporting efficiency and interpretive accuracy, by combining automated workflows with rigorous human validation. Our roadmap is defined by innovation, from software automation to the transformative potential of At-Bit Imaging (ABI).</p>
+                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 border-t border-white/10 pt-6">
+                                <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Agentic AI</div>
+                                <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Python validation</div>
+                                <div class="text-[10px] font-bold uppercase tracking-widest text-[#ffd700] sheen-word">Next-gen hardware ready</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -416,6 +677,314 @@
     </footer>
 
     <script>
+        // Clear existing fragments from a card
+        function clearFragments(card) {
+            if (!card) return;
+            const fragments = card.querySelectorAll('.mosaic-fragment');
+            fragments.forEach(fragment => fragment.remove());
+        }
+        
+        // Generate mosaic fragments
+        function generateMosaicFragments() {
+            const card = document.getElementById('mosaic-card');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 4;
+            const cols = 8;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // Staggered delay based on position
+                    const delay = (row * cols + col) * 0.025; // 0.025s per fragment for faster sequence
+                    fragment.style.transitionDelay = `${delay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+
+        // Generate 4x4 mosaic fragments for second card
+        function generateMosaicFragmentsDelayed() {
+            const card = document.getElementById('mosaic-card-delayed');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 4;
+            const cols = 4;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // No base delay - timing controlled by JS
+                    const individualDelay = (row * cols + col) * 0.05; // 0.05s per fragment
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Generate 4x2 mosaic fragments for third card
+        function generateMosaicFragmentsDelayed2() {
+            const card = document.getElementById('mosaic-card-delayed-2');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 2;
+            const cols = 4;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // No base delay - timing controlled by JS
+                    const individualDelay = (row * cols + col) * 0.1; // 0.1s per fragment for 8 total
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Generate 3x3 mosaic fragments for fourth card
+        function generateMosaicFragmentsDelayed3() {
+            const card = document.getElementById('mosaic-card-delayed-3');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 3;
+            const cols = 3;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // Staggered delay
+                    const individualDelay = (row * cols + col) * 0.08; // 0.08s per fragment for 9 total
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Generate 2x3 mosaic fragments for fifth card
+        function generateMosaicFragmentsDelayed4() {
+            const card = document.getElementById('mosaic-card-delayed-4');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 2;
+            const cols = 3;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // Staggered delay
+                    const individualDelay = (row * cols + col) * 0.12; // 0.12s per fragment for 6 total
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Generate 4x4 mosaic fragments for OUTPUT card
+        function generateMosaicFragmentsDelayed5() {
+            const card = document.getElementById('mosaic-card-delayed-5');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 4;
+            const cols = 4;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // Staggered delay
+                    const individualDelay = (row * cols + col) * 0.05; // 0.05s per fragment for 16 total
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Generate 8x4 mosaic fragments for Future proofing card
+        function generateMosaicFragmentsDelayed6() {
+            const card = document.getElementById('mosaic-card-delayed-6');
+            if (!card) return;
+            
+            // Clear existing fragments
+            clearFragments(card);
+            
+            const rows = 4;
+            const cols = 8;
+            const cardRect = card.getBoundingClientRect();
+            const fragmentWidth = cardRect.width / cols;
+            const fragmentHeight = cardRect.height / rows;
+            
+            // Create fragments
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const fragment = document.createElement('div');
+                    fragment.className = 'mosaic-fragment';
+                    
+                    // Position fragment
+                    fragment.style.left = `${col * fragmentWidth}px`;
+                    fragment.style.top = `${row * fragmentHeight}px`;
+                    fragment.style.width = `${fragmentWidth}px`;
+                    fragment.style.height = `${fragmentHeight}px`;
+                    
+                    // Random offset for starting position
+                    const randomX = (Math.random() - 0.5) * 40; // ±20px
+                    const randomY = (Math.random() - 0.5) * 40; // ±20px
+                    fragment.style.setProperty('--tx', `${randomX}px`);
+                    fragment.style.setProperty('--ty', `${randomY}px`);
+                    
+                    // Staggered delay
+                    const individualDelay = (row * cols + col) * 0.025; // 0.025s per fragment for 32 total
+                    fragment.style.transitionDelay = `${individualDelay}s`;
+                    
+                    card.appendChild(fragment);
+                }
+            }
+        }
+        
+        // Regenerate all fragments (for window resize)
+        function regenerateAllFragments() {
+            generateMosaicFragments();
+            generateMosaicFragmentsDelayed();
+            generateMosaicFragmentsDelayed2();
+            generateMosaicFragmentsDelayed3();
+            generateMosaicFragmentsDelayed4();
+            generateMosaicFragmentsDelayed5();
+            generateMosaicFragmentsDelayed6();
+        }
+        
+        // Add window resize handler
+        window.addEventListener('resize', regenerateAllFragments);
+        
         // Scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -432,7 +1001,16 @@
         
         // Observe all animated elements
         document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right');
+            // Generate mosaic fragments for all cards
+            generateMosaicFragments();
+            generateMosaicFragmentsDelayed();
+            generateMosaicFragmentsDelayed2();
+            generateMosaicFragmentsDelayed3();
+            generateMosaicFragmentsDelayed4();
+            generateMosaicFragmentsDelayed5();
+            generateMosaicFragmentsDelayed6();
+            
+            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right, .mosaic-card, .mosaic-card-delayed, .mosaic-card-delayed-2, .mosaic-card-delayed-3, .mosaic-card-delayed-4, .mosaic-card-delayed-5, .mosaic-card-delayed-6');
             animatedElements.forEach(el => observer.observe(el));
         });
     </script>

@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.apricitygeo.com/">
+<meta property="og:title" content="Apricity Geoscience Ltd | Petrophysical Analysis & Image Log Specialists">
+<meta property="og:description" content="Independent specialist consultancy providing high-resolution borehole image interpretation and advanced petrophysical workflows for subsurface projects.">
+<meta property="og:image" content="https://www.apricitygeo.com/logo.webp"> 
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Apricity Geoscience Ltd">
+<meta name="twitter:description" content="Specialist Borehole Image Interpretation and Advanced Petrophysics.">
+<meta name="twitter:image" content="https://www.apricitygeo.com/logo.webp">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apricity Geoscience Ltd | Expert Image Log Analysis</title>
@@ -73,6 +84,139 @@
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
+
+        /* Laser Scan Reveal Animation */
+        .laser-scan-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            border: none;
+            box-shadow: none;
+            z-index: 10;
+        }
+
+        .mobile-laser-scan-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            border: none;
+            box-shadow: none;
+            z-index: 10;
+        }
+
+        .laser-scan-image {
+            clip-path: inset(0 0 100% 0);
+            filter: brightness(2.0) contrast(1.5);
+            transition: clip-path 2s cubic-bezier(0.4, 0, 0.2, 1), filter 0.2s ease-out 1.8s;
+        }
+
+        .laser-scan-image.revealed {
+            clip-path: inset(0 0 0% 0);
+            filter: brightness(1) contrast(1);
+        }
+
+        .laser-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                rgba(150, 255, 255, 0.9) 0%,
+                rgba(200, 255, 255, 1) 50%,
+                rgba(150, 255, 255, 0.9) 90%,
+                transparent 100%
+            );
+            box-shadow: 
+                0 0 50px rgba(200, 255, 255, 1),
+                0 0 100px rgba(150, 255, 255, 0.8),
+                0 0 150px rgba(100, 255, 255, 0.6),
+                0 0 5px rgba(200, 255, 255, 1);
+            transform: skewX(15deg);
+            z-index: 10;
+        }
+
+        .laser-line.scanning {
+            animation: laserTravel 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .laser-line.scanning::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, 
+                rgba(0, 255, 255, 0.6) 0%,
+                rgba(0, 255, 255, 0.3) 30%,
+                transparent 70%
+            );
+            opacity: 0;
+            animation: laserGlow 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            z-index: 15;
+        }
+
+        @keyframes laserTravel {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+            5% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes laserGlow {
+            0% {
+                opacity: 0;
+                transform: translateY(0%);
+            }
+            5% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+            95% {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes cyanGlowPulse {
+            0% {
+                text-shadow: 3px 3px 6px rgba(26, 66, 138, 1), 2px 2px 4px rgba(26, 66, 138, 0.8), 0 0 12px rgba(26, 66, 138, 0.6), 0 0 20px rgba(26, 66, 138, 0.4);
+                filter: none;
+            }
+            50% {
+                text-shadow: 3px 3px 6px rgba(0, 255, 255, 0.9), 2px 2px 4px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+                filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8)) drop-shadow(0 0 40px rgba(0, 255, 255, 0.5));
+            }
+            100% {
+                text-shadow: 3px 3px 6px rgba(26, 66, 138, 1), 2px 2px 4px rgba(26, 66, 138, 0.8), 0 0 12px rgba(26, 66, 138, 0.6), 0 0 20px rgba(26, 66, 138, 0.4);
+                filter: none;
+            }
+        }
+
+        .cyan-glow-active {
+            animation: cyanGlowPulse 0.8s cubic-bezier(0.2, 0, 0.6, 1);
+        }
         
         .gold { color: #ffd700; }
         .gold-bg { background-color: #ffd700; }
@@ -111,6 +255,44 @@
             opacity: 1;
             transform: translateX(0);
         }
+        
+        /* Spiral animation for mobile images */
+        .spiral-in {
+            opacity: 0;
+            transform: rotate(-720deg) scale(0.3);
+            transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .spiral-in.is-visible {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+        
+        /* Float in from bottom animation */
+        .float-in-bottom {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.0s ease-out;
+        }
+        
+        .float-in-bottom.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Scrolling text animation */
+        .scrolling-text {
+            animation: scroll-left 20s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
                 
         .card-hover {
             transition: all 0.3s ease;
@@ -127,6 +309,33 @@
                 0 8px 15px rgba(0, 0, 0, 0.2),
                 inset 0 2px 4px rgba(255, 255, 255, 0.3),
                 inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Glass frame only for laser scan containers */
+        .glass-frame {
+            border-radius: 2px;
+            border: 2px solid transparent;
+            background: linear-gradient(black, black) padding-box,
+                        linear-gradient(135deg, #ffd700 0%, #ffd700 25%, #ffd700 50%, #ffd700 75%, #ffd700 100%) border-box;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 15px 30px rgba(0, 0, 0, 0.3),
+                0 8px 15px rgba(0, 0, 0, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            pointer-events: none;
         }
         .button-3d {
             border-radius: 12px;
@@ -174,8 +383,110 @@
             z-index: 1;
             pointer-events: none;
         }
-        
         .borehole-bg > * { position: relative; z-index: 2; }
+        
+        @keyframes beam-travel {
+            0% { left: -200px; opacity: 0; background-position: 0% 0%; }
+            10% { opacity: 1; }
+            50% { background-position: 0% 0%; }
+            90% { left: 50%; opacity: 1; background-position: 100% 0%; }
+            100% { left: 50%; opacity: 0; background-position: 100% 0%; }
+        }
+        .animate-beam {
+            animation: beam-travel 3.6s linear infinite;
+            width: 250px;
+        }
+        /* Mobile vertical beam animation: gold above midpoint, cyan below midpoint */
+        #assurance-section-mobile {
+            --beam-stage-top: 180px;   /* px - JS will override */
+            --beam-stage-height: 220px; /* px - JS will override */
+            --beam-seg-height: 160px;  /* px - JS may override */
+            --beam-overlap: 16px;      /* softness around midpoint */
+        }
+        .mobile-beam-stage {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: var(--beam-stage-top);
+            height: var(--beam-stage-height);
+            z-index: 1; /* above watermarks, below text */
+            pointer-events: none;
+        }
+        .mobile-beam-layer {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        /* Show only the top half of the stage (above midpoint) */
+        .mobile-beam-layer.top {
+            /* extend a little past midpoint, then fade out for a soft handoff */
+            clip-path: inset(0 0 calc(50% - var(--beam-overlap)) 0);
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,1) 0%,
+                rgba(0,0,0,1) calc(50% - var(--beam-overlap)),
+                rgba(0,0,0,0) calc(50% + var(--beam-overlap)),
+                rgba(0,0,0,0) 100%
+            );
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,1) 0%,
+                rgba(0,0,0,1) calc(50% - var(--beam-overlap)),
+                rgba(0,0,0,0) calc(50% + var(--beam-overlap)),
+                rgba(0,0,0,0) 100%
+            );
+        }
+        /* Show only the bottom half of the stage (below midpoint) */
+        .mobile-beam-layer.bottom {
+            /* extend a little above midpoint, then fade in for a soft handoff */
+            clip-path: inset(calc(50% - var(--beam-overlap)) 0 0 0);
+            -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0) calc(50% - var(--beam-overlap)),
+                rgba(0,0,0,1) calc(50% + var(--beam-overlap)),
+                rgba(0,0,0,1) 100%
+            );
+            mask-image: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0) 0%,
+                rgba(0,0,0,0) calc(50% - var(--beam-overlap)),
+                rgba(0,0,0,1) calc(50% + var(--beam-overlap)),
+                rgba(0,0,0,1) 100%
+            );
+        }
+        @keyframes beam-segment-travel {
+            0%   { top: calc(-1 * var(--beam-seg-height)); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { top: 100%; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .beam-segment {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: var(--beam-seg-height);
+            border-radius: 2px;
+            top: calc(-1 * var(--beam-seg-height));
+            animation: beam-segment-travel 3.6s linear infinite;
+        }
+        .beam-segment.gold {
+            background: linear-gradient(180deg, transparent 0%, #D4AF37 18%, #D4AF37 82%, transparent 100%);
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.65), 0 0 36px rgba(212, 175, 55, 0.35);
+        }
+        .beam-segment.cyan {
+            background: linear-gradient(180deg, transparent 0%, #00ffff 18%, #00ffff 82%, transparent 100%);
+            box-shadow: 0 0 18px rgba(0, 255, 255, 0.65), 0 0 36px rgba(0, 255, 255, 0.35);
+        }
+        .logo-pulse {
+            animation: cyan-impact 0.6s ease-out;
+        }
+        @keyframes cyan-impact {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0px #00ffff); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 20px #00ffff) brightness(1.2); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0px #00ffff); }
+        }
 
     </style>
 </head>
@@ -221,11 +532,33 @@
                     </a>
                 </div>
             </div>
-            <div class="card-3d relative overflow-hidden bg-black h-64 w-3/4 md:w-full md:h-full parallelogram order-2 md:order-1 mx-auto hidden md:block" style="background-image: url('lefthero.webp'), linear-gradient(black, black); background-size: cover, cover; background-position: center, center; background-blend-mode: normal;">
+            <div class="relative h-64 w-3/4 md:w-full md:h-full parallelogram order-2 md:order-1 mx-auto hidden md:block" style="isolation: isolate;">
+                <!-- Layer A: Glass Frame -->
+                <div class="glass-frame absolute inset-0 overflow-hidden"></div>
+                
+                <!-- Layer B: Inner Container with overflow:hidden and same border-radius -->
+                <div class="laser-scan-container absolute inset-0 overflow-hidden">
+                    <!-- Layer C: Image and Laser Line -->
+                    <div class="laser-scan-image" style="background-image: url('lefthero.webp'); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+                    <div class="laser-line"></div>
+                </div>
+                
+                <!-- Content Layer -->
                 <div class="relative z-10 p-16 parallelogram-content">
                 </div>
             </div>
-            <div class="card-3d relative overflow-hidden bg-black h-44 w-3/4 md:hidden parallelogram order-2 md:order-1 mx-auto" style="background-image: url('lefthero.webp'), linear-gradient(black, black); background-size: cover, cover; background-position: center, center; background-blend-mode: normal;">
+            <div class="relative h-44 w-3/4 parallelogram order-2 md:order-1 mx-auto md:hidden" style="isolation: isolate;">
+                <!-- Layer A: Glass Frame -->
+                <div class="glass-frame absolute inset-0 overflow-hidden"></div>
+                
+                <!-- Layer B: Inner Container with overflow:hidden and same border-radius -->
+                <div class="mobile-laser-scan-container absolute inset-0 overflow-hidden">
+                    <!-- Layer C: Image and Laser Line -->
+                    <div class="laser-scan-image" style="background-image: url('lefthero.webp'); background-size: cover; background-position: center; width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+                    <div class="laser-line"></div>
+                </div>
+                
+                <!-- Content Layer -->
                 <div class="relative z-10 p-16 parallelogram-content">
                 </div>
             </div>
@@ -260,10 +593,19 @@
     <section id="applications" class="bg-[#0a1a3a] text-white py-20 border-b border-blue-500 fade-in-section">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-black text-[#ffd700] mb-4" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(150, 150, 150, 0.6);">Specialised Applications</h2>
-                <p class="text-lg text-gray-300">
-                    Tailored image log analysis solutions for diverse energy sector challenges
-                </p>
+                <h2 class="text-4xl md:text-5xl font-black text-[#ffd700] mb-4" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 12px rgba(150, 150, 150, 0.6);">Technical Assurance //<Br>High-Stakes Assets</h2>
+                <div class="relative h-8 overflow-hidden">
+                    <!-- Fade overlays - stronger gradients for center-third visibility -->
+                    <div class="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#0a1a3a] via-[#0a1a3a] to-transparent z-10"></div>
+                    <div class="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#0a1a3a] via-[#0a1a3a] to-transparent z-10"></div>
+                    
+                    <!-- Scrolling text -->
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="scrolling-text whitespace-nowrap text-lg text-gray-300">
+                            Synergising multi-disciplinary inputs to de-risk the most challenging subsurface environments. &nbsp;&nbsp;&nbsp;&nbsp; Synergising multi-disciplinary inputs to de-risk the most challenging subsurface environments. &nbsp;&nbsp;&nbsp;&nbsp; Synergising multi-disciplinary inputs to de-risk the most challenging subsurface environments. &nbsp;&nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="space-y-20">
                 <!-- Row 1: Image on Left -->
@@ -271,14 +613,14 @@
                     <div class="md:col-span-3">
                         <div class="card-3d card-hover relative overflow-hidden aspect-video w-1/2 mx-auto md:w-full" style="background-image: url('Efficiency_ROI_Optimisation.webp'); background-size: cover; background-position: center;">
                             <div class="relative z-10 p-4 md:p-8 flex flex-col items-end justify-start h-full">
-                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Efficiency & ROI Optimisation</h3>
+                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Global Exploration //<br>Precision De-risking</h3>
                             </div>
                         </div>
                     </div>
                     <div class="md:col-span-5 flex items-start">
                         <div class="w-full">
                             <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4"></div>
-                            <p class="text-white leading-relaxed text-sm md:text-base">Advanced image log interpretation and fracture characterisation for unconventional and complex reservoir plays. We integrate high-resolution borehole imaging with traditional petrophysical logs to quantify fracture density and orientation, significantly improving well placement and completion designs to maximise recovery and asset value.</p>
+                            <p class="text-white leading-relaxed text-sm md:text-base">In high-stakes frontier basins, the margin for error is zero. We provide an independent forensic audit of legacy and new-acquisition data, synthesising complex BHIL and petrophysical inputs to validate exploration models before the first bit hits the ground.</p>
                         </div>
                     </div>
                     <div class="hidden md:block md:col-span-2">
@@ -288,14 +630,14 @@
                 
                 <!-- Mobile-only version of Row 1 -->
                 <div class="md:hidden">
-                    <div class="card-3d card-hover relative overflow-hidden h-72 w-3/4 mx-auto mb-8" style="background-image: url('Efficiency_ROI_Optimisation.webp'); background-size: cover; background-position: center;">
+                    <div class="card-3d card-hover spiral-in relative overflow-hidden h-56 w-3/4 mx-auto mb-8" style="background-image: url('Efficiency_ROI_Optimisation.webp'); background-size: cover; background-position: center;">
                         <div class="relative z-10 p-4 md:p-8 flex flex-col items-end justify-start h-full">
-                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Efficiency & ROI Optimisation</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Global Exploration //<br>Precision De-risking</h3>
                         </div>
                     </div>
                     <div class="w-full">
                         <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4"></div>
-                        <p class="text-white leading-relaxed text-sm md:text-base">Advanced image log interpretation and fracture characterisation for unconventional and complex reservoir plays. We integrate high-resolution borehole imaging with traditional petrophysical logs to quantify fracture density and orientation, significantly improving well placement and completion designs to maximise recovery and asset value.</p>
+                        <p class="text-white leading-relaxed text-sm md:text-base">In high-stakes frontier basins, the margin for error is zero. We provide an independent forensic audit of legacy and new-acquisition data, synthesising complex BHIL and petrophysical inputs to validate exploration models before the first bit hits the ground.</p>
                     </div>
                 </div>
                 
@@ -307,13 +649,13 @@
                     <div class="md:col-span-5 flex items-start">
                         <div class="w-full text-right">
                             <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4 ml-auto"></div>
-                            <p class="text-white leading-relaxed text-sm md:text-base text-right">Supporting reservoir optimisation and production enhancement strategies for major operators through integrated formation evaluation. We leverage advanced petrophysical workflows to identify bypassed pay zones and optimise drainage patterns, ensuring precise water saturation and permeability modeling to drive sustained production growth in mature and developing fields.</p>
+                            <p class="text-white leading-relaxed text-sm md:text-base text-right">Extending the economic life of mature assets through surgical data integration. We identify the overlooked connectivity and fracture networks that standard petrophysics misses, providing the 'cohesion' needed to unlock bypassed pay and optimise late-life recovery.</p>
                         </div>
                     </div>
                     <div class="md:col-span-3">
                         <div class="card-3d card-hover relative overflow-hidden aspect-video w-1/2 mx-auto md:w-full" style="background-image: url('Production_Maximisation.webp'); background-size: cover; background-position: center;">
                             <div class="relative z-10 p-4 md:p-8 flex flex-col items-start justify-start h-full">
-                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Production Maximisation</h3>
+                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Asset Maximisation //<br>Integrated Reservoir Reality</h3>
                             </div>
                         </div>
                     </div>
@@ -321,14 +663,14 @@
                 
                 <!-- Mobile-only version of Row 2 -->
                 <div class="md:hidden">
-                    <div class="card-3d card-hover relative overflow-hidden h-72 w-3/4 mx-auto mb-8" style="background-image: url('Production_Maximisation.webp'); background-size: cover; background-position: center;">
+                    <div class="card-3d card-hover spiral-in relative overflow-hidden h-56 w-3/4 mx-auto mb-8" style="background-image: url('Production_Maximisation.webp'); background-size: cover; background-position: center;">
                         <div class="relative z-10 p-4 md:p-8 flex flex-col items-start justify-start h-full">
-                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Production Maximisation</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Asset Maximisation //<br>Integrated Reservoir Reality</h3>
                         </div>
                     </div>
                     <div class="w-full">
                         <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4 ml-auto"></div>
-                        <p class="text-white leading-relaxed text-sm md:text-base text-right">Supporting reservoir optimisation and production enhancement strategies for major operators through integrated formation evaluation. We leverage advanced petrophysical workflows to identify bypassed pay zones and optimise drainage patterns, ensuring precise water saturation and permeability modeling to drive sustained production growth in mature and developing fields.</p>
+                        <p class="text-white leading-relaxed text-sm md:text-base text-right">Extending the economic life of mature assets through surgical data integration. We identify the overlooked connectivity and fracture networks that standard petrophysics misses, providing the 'cohesion' needed to unlock bypassed pay and optimise late-life recovery.</p>
                     </div>
                 </div>
                 
@@ -337,14 +679,14 @@
                     <div class="md:col-span-3">
                         <div class="card-3d card-hover relative overflow-hidden aspect-video w-1/2 mx-auto md:w-full" style="background-image: url('Energy_Transition.webp'); background-size: cover; background-position: center;">
                             <div class="relative z-10 p-4 md:p-8 flex flex-col items-end justify-start h-full">
-                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Energy Transition</h3>
+                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Energy Transition //<br>Containment & Storage Assurance</h3>
                             </div>
                         </div>
                     </div>
                     <div class="md:col-span-5 flex items-start">
                         <div class="w-full">
                             <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4"></div>
-                            <p class="text-white leading-relaxed text-sm md:text-base">Specialised expertise in CCUS and net-zero initiatives, applying advanced petrophysics to ensure seal integrity and storage capacity. We evaluate reservoir injectivity and mineralogical stability to de-risk carbon sequestration and geothermal development for sustainable energy strategies.</p>
+                            <p class="text-white leading-relaxed text-sm md:text-base">Applying high-fidelity borehole imaging to the unique challenges of Carbon Capture and Geothermal energy. We provide definitive technical assurance on seal integrity and caprock stability, ensuring long-term containment security in repurposed or new-play reservoirs.</p>
                         </div>
                     </div>
                     <div class="hidden md:block md:col-span-2">
@@ -354,14 +696,14 @@
                 
                 <!-- Mobile-only version of Row 3 -->
                 <div class="md:hidden">
-                    <div class="card-3d card-hover relative overflow-hidden h-72 w-3/4 mx-auto mb-8" style="background-image: url('Energy_Transition.webp'); background-size: cover; background-position: center;">
+                    <div class="card-3d card-hover spiral-in relative overflow-hidden h-56 w-3/4 mx-auto mb-8" style="background-image: url('Energy_Transition.webp'); background-size: cover; background-position: center;">
                         <div class="relative z-10 p-4 md:p-8 flex flex-col items-end justify-start h-full">
-                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Energy Transition</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-right" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Energy Transition //<br>Containment & Storage Assurance</h3>
                         </div>
                     </div>
                     <div class="w-full">
                         <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4"></div>
-                        <p class="text-white leading-relaxed text-sm md:text-base">Specialised expertise in CCUS and net-zero initiatives, applying advanced petrophysics to ensure seal integrity and storage capacity. We evaluate reservoir injectivity and mineralogical stability to de-risk carbon sequestration and geothermal development for sustainable energy strategies.</p>
+                        <p class="text-white leading-relaxed text-sm md:text-base">Applying high-fidelity borehole imaging to the unique challenges of Carbon Capture and Geothermal energy. We provide definitive technical assurance on seal integrity and caprock stability, ensuring long-term containment security in repurposed or new-play reservoirs.</p>
                     </div>
                 </div>
                 
@@ -373,13 +715,13 @@
                     <div class="md:col-span-5 flex items-start">
                         <div class="w-full text-right">
                             <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4 ml-auto"></div>
-                            <p class="text-white leading-relaxed text-sm md:text-base text-right">Expert image log interpretation for exploration projects, reducing uncertainty in strategic decisions through detailed facies and structural analysis. By characterising complex textures and tectonic features at the borehole scale, we provide the critical petrophysical constraints needed to validate exploration models and mitigate geological risk in unproven basins.</p>
+                            <p class="text-white leading-relaxed text-sm md:text-base text-right">When the decision-making stakes are highest, we provide the absolute standard in technical verification. We act as the independent bridge between discipline silos, rectifying inconsistencies and providing a validated, cohesive narrative for internal and external stakeholders.</p>
                         </div>
                     </div>
                     <div class="md:col-span-3">
                         <div class="card-3d card-hover relative overflow-hidden aspect-video w-1/2 mx-auto md:w-full" style="background-image: url('Frontier_De-risking.webp'); background-size: cover; background-position: center;">
                             <div class="relative z-10 p-4 md:p-8 flex flex-col items-start justify-start h-full">
-                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Frontier De-risking</h3>
+                                <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Technical Authority //<br>Independent Peer Validation</h3>
                             </div>
                         </div>
                     </div>
@@ -387,14 +729,14 @@
                 
                 <!-- Mobile-only version of Row 4 -->
                 <div class="md:hidden">
-                    <div class="card-3d card-hover relative overflow-hidden h-72 w-3/4 mx-auto mb-8" style="background-image: url('Frontier_De-risking.webp'); background-size: cover; background-position: center;">
+                    <div class="card-3d card-hover spiral-in relative overflow-hidden h-56 w-3/4 mx-auto mb-8" style="background-image: url('Frontier_De-risking.webp'); background-size: cover; background-position: center;">
                         <div class="relative z-10 p-4 md:p-8 flex flex-col items-start justify-start h-full">
-                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Frontier De-risking</h3>
+                            <h3 class="text-sm md:text-lg font-bold text-[#ffd700] text-left" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Technical Authority //<br>Independent Peer Validation</h3>
                         </div>
                     </div>
                     <div class="w-full">
                         <div class="w-[17%] h-1 bg-[#ffd700] rounded-[2px] mb-4 ml-auto"></div>
-                        <p class="text-white leading-relaxed text-sm md:text-base text-right">Expert image log interpretation for exploration projects, reducing uncertainty in strategic decisions through detailed facies and structural analysis. By characterising complex textures and tectonic features at the borehole scale, we provide the critical petrophysical constraints needed to validate exploration models and mitigate geological risk in unproven basins.</p>
+                        <p class="text-white leading-relaxed text-sm md:text-base text-right">When the decision-making stakes are highest, we provide the absolute standard in technical verification. We act as the independent bridge between discipline silos, rectifying inconsistencies and providing a validated, cohesive narrative for internal and external stakeholders.</p>
                     </div>
                 </div>
             </div>
@@ -404,13 +746,13 @@
         <div class="container mx-auto px-6 max-w-6xl">
         
         <div class="space-y-0">
-            <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-center mb-16 slide-in-right">
     
     <div class="md:col-span-3">
         <div class="relative">
             <div class="card-3d relative overflow-hidden aspect-video w-3/4 mx-auto md:w-full" style="background-image: url('CBL.webp'), linear-gradient(black, black); background-size: cover, cover; background-position: center, center; background-blend-mode: normal;">
                 <div class="relative z-10 p-4 md:p-8 flex flex-col items-end justify-start h-full">
-                    <h3 class="text-sm md:text-lg font-bold text-white" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Expanding the Scope of<br>Subsurface Integrity</h3>
+                    <h3 class="text-sm md:text-lg font-bold text-white" style="text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 0, 0, 0.4);">Subsurface Integrity //<br>Expanded Scope</h3>
                 </div>
             </div>
         </div>
@@ -419,7 +761,7 @@
         <div class="space-y-6">
             <div class="w-[17%] h-1 bg-[#0a1a3a] rounded-[2px] mb-4"></div>
             <p class="text-sm md:text-base leading-relaxed text-slate-800">
-                We are committed to providing the highest standards of data integrity across the wellbore lifecycle.  To support this, we have transitioned into CBL analysis as a natural evolution of our core expertise; the high-resolution spatial awareness required for Borehole Image Interpretation (BHIL) provides a seamless crossover into assessing cement integrity and wellbore isolation. This work is peer-assured by a global network of senior specialists.
+                We are committed to providing the highest standards of data integrity across the wellbore lifecycle.  To support this, we have transitioned into CBL analysis as a natural evolution of our core expertise; the high-resolution spatial awareness required for Borehole Image Interpretation (BHIL) provides a seamless crossover into assessing cement integrity and wellbore isolation.<br>This work is peer-assured by a global network of senior specialists.
             </p>
         </div>
     </div>
@@ -428,27 +770,72 @@
     </div>
 </div>
 
-        <div class="text-slate-900 p-8 md:p-12 rounded-[2px] shadow-2xl relative overflow-hidden slide-in-left">
-            <div class="absolute right-20 bottom-5 opacity-10 translate-x-1/4 translate-y-1/4">
-                <span class="text-[12rem] alata-regular">Islay</span>
+        
+</div>
+    <!-- Technical Assurance Section - Desktop -->
+    <section id="assurance-section-desktop" class="assurance-section relative overflow-hidden bg-slate-300 py-20 hidden md:block">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="logo.webp" class="absolute left-[-50px] top-[40%] -translate-y-1/2 opacity-20 w-[400px]" alt="">
+            <img src="Islay_logo-transparent.webp" class="absolute right-[-10%] top-[60%] -translate-y-1/2 opacity-10 w-[600px]" alt="">
+            
+            <div class="data-beam animate-beam absolute top-1/2 left-[-200px] w-[250px] h-[2px] -translate-y-1/2 z-10 opacity-0" 
+                 style="background: linear-gradient(90deg, #D4AF37 0%, #D4AF37 30%, #00ffff 70%, #00ffff 100%); background-size: 200% 100%; background-position: 0% 0%; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);">
             </div>
+        </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="max-w-2xl">
-                    <h4 class="text-2xl font-bold text-[#0a1a3a] mb-4">Technical Assurance & Islay Subsurface and Engineering</h4>
+        <div class="relative z-20 max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="md:w-1/2">
+                <h4 class="text-2xl font-bold text-[#0a1a3a] mb-4">Technical Assurance & Islay Subsurface and Engineering</h4>
+                <p class="text-slate-800 leading-relaxed">
+                    For clients requiring a wider multi-disciplinary subsurface team, my strategic partnership in Islay Subsurface and Engineering allows us to scale instantly. Whether you require a single specialist or a comprehensive, integrated subsurface team, we provide the technical infrastructure to de-risk your project.
+                </p>
+            </div>
+            <div class="md:w-1/3 flex justify-end">
+                <a href="https://www.islaysubsurface.com/" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <img id="islay-logo-live" src="Islay_logo-transparent.webp" alt="Islay" class="h-32 w-auto relative z-30">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Assurance Section - Mobile -->
+    <section id="assurance-section-mobile" class="assurance-section md:hidden relative overflow-hidden bg-slate-300 py-16">
+        <!-- Background watermarks for mobile assurance section -->
+        <div class="pointer-events-none absolute inset-0 z-0">
+            <!-- Apricity watermark near top-left of text block -->
+            <img src="logo.webp" alt="" class="absolute top-6 left-4 opacity-10 w-28" style="width: 10.5rem;">
+            <!-- Enlarged Islay watermark behind the main logo, slightly offset -->
+            <img src="Islay_logo-transparent.webp" alt="" class="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-10 w-72 translate-y-6" style="width: 36rem;">
+        </div>
+
+        <!-- Beam stage (positioned by JS) -->
+        <div class="mobile-beam-stage" aria-hidden="true">
+            <!-- Gold beam, clipped to the top half (above midpoint) -->
+            <div class="mobile-beam-layer top">
+                <div class="beam-segment gold"></div>
+            </div>
+            <!-- Cyan beam, clipped to the bottom half (below midpoint) -->
+            <div class="mobile-beam-layer bottom">
+                <div class="beam-segment cyan"></div>
+            </div>
+        </div>
+        <div class="relative max-w-xl mx-auto px-6 z-10">
+            <div class="relative pb-24 pt-4 text-center">
+                <div class="relative z-10">
+                    <h4 class="text-2xl font-bold text-[#0a1a3a] mb-4">Technical Assurance &amp; Islay Subsurface and Engineering</h4>
                     <p class="text-slate-800 leading-relaxed">
                         For clients requiring a wider multi-disciplinary subsurface team, my strategic partnership in Islay Subsurface and Engineering allows us to scale instantly. Whether you require a single specialist or a comprehensive, integrated subsurface team, we provide the technical infrastructure to de-risk your project.
                     </p>
                 </div>
-                
-                <div class="hidden md:block w-3 h-24 bg-[#0a1a3a]"></div>
-                
-                <a href="https://www.islaysubsurface.com/" target="_blank" rel="noopener noreferrer" class="flex-shrink-0 hover:opacity-80 transition-opacity mt-5">
-                    <img src="Islay_logo-transparent.webp" alt="Islay Subsurface and Engineering" class="h-32 w-auto">
-                </a>
-
             </div>
-</div>
+            <div class="flex justify-center mt-4">
+                <a href="https://www.islaysubsurface.com/" target="_blank" class="hover:opacity-80 transition-opacity">
+                    <img id="islay-logo-mobile" src="Islay_logo-transparent.webp" alt="Islay" class="h-28 w-auto relative z-20">
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-slate-300 text-black py-4">
         <div class="container mx-auto px-6 md:px-12 text-center">
             <p class="text-sm">&copy; <span id="year"></span> Apricity Geoscience Ltd. All rights reserved.</p>
@@ -545,8 +932,147 @@
         
         // Observe all animated elements
         document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right');
+            // Laser scan animation
+            const laserScanContainers = document.querySelectorAll('.laser-scan-container');
+            const mobileLaserScanContainers = document.querySelectorAll('.mobile-laser-scan-container');
+            
+            // Handle desktop containers
+            laserScanContainers.forEach((container, index) => {
+                const laserImage = container.querySelector('.laser-scan-image');
+                const laserLine = container.querySelector('.laser-line');
+                
+                // Start animation after 300ms delay
+                setTimeout(() => {
+                    // Start laser line animation
+                    laserLine.classList.add('scanning');
+                    
+                    // Start image reveal animation
+                    laserImage.classList.add('revealed');
+                    
+                    // Settle image after animation completes
+                    setTimeout(() => {
+                        laserImage.classList.add('settled');
+                        
+                        // Trigger cyan glow for first container only (index 0)
+                        if (index === 0) {
+                            setTimeout(() => {
+                                const apricityText = document.querySelectorAll('.apricity-font, .apricity-font-onwhite');
+                                const logos = document.querySelectorAll('img[alt*="Apricity"]');
+                                
+                                // Filter out header elements
+                                const headerApricityText = Array.from(apricityText).filter(element => 
+                                    !element.closest('header') && !element.closest('.borehole-bg')
+                                );
+                                const headerLogos = Array.from(logos).filter(logo => 
+                                    !logo.closest('header') && !logo.closest('.borehole-bg')
+                                );
+                                
+                                headerApricityText.forEach(element => {
+                                    element.classList.add('cyan-glow-active');
+                                });
+                                
+                                headerLogos.forEach(logo => {
+                                    logo.classList.add('cyan-glow-active');
+                                });
+                                
+                                // Remove cyan glow after animation completes
+                                setTimeout(() => {
+                                    headerApricityText.forEach(element => {
+                                        element.classList.remove('cyan-glow-active');
+                                    });
+                                    headerLogos.forEach(logo => {
+                                        logo.classList.remove('cyan-glow-active');
+                                    });
+                                }, 1000); // Remove cyan glow after 1s
+                            }, 0); // Start glow immediately when image settles
+                        }
+                    }, 2000);
+                }, 300);
+            });
+            
+            // Handle mobile containers
+            mobileLaserScanContainers.forEach(container => {
+                const laserImage = container.querySelector('.laser-scan-image');
+                const laserLine = container.querySelector('.laser-line');
+                
+                // Start animation after 300ms delay
+                setTimeout(() => {
+                    // Start laser line animation
+                    laserLine.classList.add('scanning');
+                    
+                    // Start image reveal animation
+                    laserImage.classList.add('revealed');
+                    
+                    // Settle image after animation completes
+                    setTimeout(() => {
+                        laserImage.classList.add('settled');
+                    }, 2000);
+                }, 300);
+            });    
+
+            const animatedElements = document.querySelectorAll('.fade-in-section, .slide-in-left, .slide-in-right, .spiral-in, .float-in-bottom');
             animatedElements.forEach(el => observer.observe(el));
+
+            // Mobile assurance beam: set beam stage so midpoint is truly between text and logo center
+            const mobileAssuranceSection = document.getElementById('assurance-section-mobile');
+            const mobileBeamStage = mobileAssuranceSection ? mobileAssuranceSection.querySelector('.mobile-beam-stage') : null;
+            const mobileAssuranceText = mobileAssuranceSection ? mobileAssuranceSection.querySelector('p') : null;
+            const mobileAssuranceLogo = document.getElementById('islay-logo-mobile');
+
+            const positionMobileBeamStage = () => {
+                if (!mobileAssuranceSection || !mobileBeamStage || !mobileAssuranceText || !mobileAssuranceLogo) return;
+
+                // Skip if not visible (e.g. desktop breakpoint)
+                const display = window.getComputedStyle(mobileAssuranceSection).display;
+                if (display === 'none') return;
+
+                const sectionRect = mobileAssuranceSection.getBoundingClientRect();
+                const textRect = mobileAssuranceText.getBoundingClientRect();
+                const logoRect = mobileAssuranceLogo.getBoundingClientRect();
+                if (sectionRect.height === 0 || textRect.height === 0 || logoRect.height === 0) return;
+
+                // Start slightly inside the body text; end at the logo center
+                const startY = (textRect.bottom - sectionRect.top) - 12;
+                const endY = (logoRect.top + (logoRect.height / 2) - sectionRect.top);
+
+                const stageTop = Math.max(0, startY);
+                const stageHeight = Math.max(120, endY - stageTop);
+                const segHeight = Math.max(90, Math.min(180, stageHeight * 0.75));
+
+                mobileAssuranceSection.style.setProperty('--beam-stage-top', `${stageTop}px`);
+                mobileAssuranceSection.style.setProperty('--beam-stage-height', `${stageHeight}px`);
+                mobileAssuranceSection.style.setProperty('--beam-seg-height', `${segHeight}px`);
+            };
+
+            // Initial + resize updates (debounced)
+            let beamResizeTimer = null;
+            positionMobileBeamStage();
+            setTimeout(positionMobileBeamStage, 250);
+            window.addEventListener('resize', () => {
+                if (beamResizeTimer) clearTimeout(beamResizeTimer);
+                beamResizeTimer = setTimeout(positionMobileBeamStage, 120);
+            }, { passive: true });
+            
+        // Data beam and logo pulse animation (desktop and mobile logos)
+        const assuranceLogos = document.querySelectorAll('#islay-logo-live, #islay-logo-mobile');
+
+        if (assuranceLogos.length > 0) {
+            // Start first pulse immediately when beam reaches logo (3.24s)
+            setTimeout(() => {
+                assuranceLogos.forEach(logoEl => {
+                    logoEl.classList.add('logo-pulse');
+                    setTimeout(() => logoEl.classList.remove('logo-pulse'), 600);
+                });
+            }, 3240);
+            
+            // Then repeat every 3.6s to match beam animation cycle
+            setInterval(() => {
+                assuranceLogos.forEach(logoEl => {
+                    logoEl.classList.add('logo-pulse');
+                    setTimeout(() => logoEl.classList.remove('logo-pulse'), 600);
+                });
+            }, 3600);
+        }
         });
     </script>
 </body>
